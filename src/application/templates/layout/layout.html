@@ -1,0 +1,15 @@
+
+{{define "layout"}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{template "title"}}</title>
+    <link rel="stylesheet" href="/static/stylesheets/main.css">
+</head>
+<body>
+    <h1>Hello from template</h1>
+    {{ template "body" . }}
+</body>
+</html>
+{{end}}
