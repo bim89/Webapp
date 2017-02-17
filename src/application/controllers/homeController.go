@@ -1,16 +1,22 @@
 package controllers
 
 import (
-	"net/http"
 	"application/models"
+	"net/http"
+	"fmt"
 )
 
 type HomeController struct {
-	name string
 }
 
-func (h *HomeController) Index(res http.ResponseWriter, req *http.Request) {
-	user := models.User{"Bjørn-Inge Morstad", "bimorstad@gmail.com"}
-	renderView(defaultLayout, "home", "index", user, res, req)
+func (*HomeController) Index(res http.ResponseWriter, req *http.Request) {
+	user := models.User{}
+	user.Name = "Bjørn-Inge Morstad"
+	user.Email = "bimorstad@gmail.com"
+
+	renderView(res, req, user)
 }
 
+func (*HomeController) Create(res http.ResponseWriter, req *http.Request) {
+	fmt.Fprintf(res, "Post method")
+}

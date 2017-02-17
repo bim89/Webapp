@@ -2,4 +2,7 @@
 
 {{define "body"}}
     <small>Name: {{ .Name }} email: <a href="mailto:{{ .Email }}">{{.Email}}</a></small>
+    <form method="post" action="create">
+        <input type="submit">
+    </form>
 {{end}}

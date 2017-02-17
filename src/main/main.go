@@ -1,40 +1,22 @@
 package main
 
 import (
-	// "application/models"
-	"application/controllers"
+	"fmt"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
-	"fmt"
+
 )
 
 func main() {
+	routes := mux.NewRouter().StrictSlash(false)
+	dbHandler()
 
-	router := mux.NewRouter().StrictSlash(true)
-	var homeController = controllers.HomeController{}
-	router.HandleFunc("/", homeController.Index)
+	userResource(routes.PathPrefix("/users/").Subrouter())
 
+	// Including assets:
+	routes.PathPrefix("/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("./src/application/assets/"))))
+	fmt.Println("Listening on localhost:8080")
+	log.Fatal(http.ListenAndServe(":8080", routes))
 
-	log.Fatal(http.ListenAndServe(":8080", router))
-	fmt.Println("Listening on localhost:8080...")
-	/*
-	fmt.Println("Hello World")
-	another()
-
-	var userController = controllers.UserController{}
-	userController.Create()
-	controllers.Post.Create()
-
-	arr := [5]int{1, 2, 3, 4, 5}
-	for _, x := range arr {
-		fmt.Printf("The value is: %d and som more text \n", x)
-	}
-
-	for i := 0; i < 10; i++ {
-		fmt.Println(i + 1)
-	}
-
-	models.Print()
-	*/
 }
