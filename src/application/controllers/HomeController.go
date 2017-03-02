@@ -3,7 +3,6 @@ package controllers
 import (
 	"application/models"
 	"net/http"
-	"fmt"
 )
 
 type HomeController struct {
@@ -17,6 +16,11 @@ func (*HomeController) Index(res http.ResponseWriter, req *http.Request) {
 	renderView(res, req, user)
 }
 
-func (*HomeController) Create(res http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(res, "Post method")
+func (HomeController) Create(res http.ResponseWriter, req *http.Request) {
+	// renderView(res, req, nil)
+	createTemplate("create", "home", "layout", nil, res, req)
+}
+
+func (*HomeController) Settings(res http.ResponseWriter, req *http.Request) {
+	renderView(res, req, nil)
 }

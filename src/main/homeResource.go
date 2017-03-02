@@ -5,8 +5,9 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func userResource(r *mux.Router) {
+func homeResource(r *mux.Router) {
 	Home := controllers.HomeController{}
 	r.HandleFunc("/", Home.Index).Methods("GET")
-	r.HandleFunc("/create", Home.Create).Methods("POST")
+	r.HandleFunc("/ny-undersokelse", Home.Create).Methods("GET")
+	r.HandleFunc("/innstillinger", Home.Settings).Methods("GET")
 }

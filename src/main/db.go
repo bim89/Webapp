@@ -8,6 +8,7 @@ import (
 )
 
 type Person struct {
+	Id    bson.ObjectId `bson:"_id,omitempty"`
 	Name  string
 	Phone string
 }
@@ -23,9 +24,11 @@ func dbHandler() {
 	// Optional. Switch the session to a monotonic behavior.
 	session.SetMode(mgo.Monotonic, true)
 
-	c := session.DB("CEApp").C("people")
-	err = c.Insert(&Person{"Ale", "+55 53 8116 9639"},
-		&Person{"Cla", "+55 53 8402 8510"})
+	c := session.DB("CEApp").C("persons")
+
+	err = c.Insert(
+		bson.M{"name": "Ale", "phone": "+55 53 8116 9639"},
+		bson.M{"name": "Pete", "phone": "+55 53 8556 9544"})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -36,6 +39,6 @@ func dbHandler() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Phone:", result.Phone)
+	fmt.Println("Phone:", result.Id.Hex())
 }
 

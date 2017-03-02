@@ -1,4 +1,4 @@
-h1 {
-    font-family: "Helvetica";
-    color: blue;
+.centered {
+    float: none;
+    margin: 0 auto;
 }

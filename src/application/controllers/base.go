@@ -17,7 +17,7 @@ func templatesDir(directory string) string {
 
 func renderView(res http.ResponseWriter, req *http.Request, data interface{}) {
 
-	pc := make([]uintptr, 10) // at least 1 entry needed
+	pc := make([]uintptr, 100) // at least 1 entry needed
 	runtime.Callers(2, pc)
 	f := runtime.FuncForPC(pc[0])
 	var folder string = matchString(`\(\*(.*?)Controller\)`, f.Name())
@@ -27,7 +27,7 @@ func renderView(res http.ResponseWriter, req *http.Request, data interface{}) {
 }
 
 func renderViewWithLayout(layout string, data interface{}, res http.ResponseWriter, req *http.Request) {
-	pc := make([]uintptr, 10)
+	pc := make([]uintptr, 100)
 	runtime.Callers(2, pc)
 	f := runtime.FuncForPC(pc[0])
 	var folder string = matchString(`\(\*(.*?)Controller\)`, f.Name())
@@ -37,7 +37,7 @@ func renderViewWithLayout(layout string, data interface{}, res http.ResponseWrit
 }
 
 func renderViewWithFile(file string, data interface{}, res http.ResponseWriter, req *http.Request) {
-	pc := make([]uintptr, 10)
+	pc := make([]uintptr, 100)
 	runtime.Callers(2, pc)
 	f := runtime.FuncForPC(pc[0])
 	var folder string = matchString(`\(\*(.*?)Controller\)`, f.Name())
@@ -63,6 +63,7 @@ func createTemplate(file string, folder string, layout string, data interface{},
 func matchString(r string, s string) string {
 	reg := regexp.MustCompile(r)
 	match := reg.FindStringSubmatch(s)
+	println(match[1])
 
 	return match[1]
 }
