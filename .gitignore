@@ -1,0 +1,6 @@
+./pkg/*
+./.idea/*
+.DS_Store
+*.swp
+*.swo
+
