@@ -7,11 +7,19 @@ import (
 	"path"
 	"regexp"
 	"runtime"
+	"path/filepath"
+	"os"
+	"log"
 )
 
 const defaultLayout = "layout"
 
 func templatesDir(directory string) string {
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(dir)
 	return fmt.Sprintf("src/application/templates/%s", directory)
 }
 

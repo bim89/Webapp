@@ -40,13 +40,15 @@
             </tr>
             </thead>
             <tbody>
+            {{ range . }}
             <tr>
                 <td>1,001</td>
-                <td>Lorem</td>
+                <td>{{ .Title }}</td>
                 <td>ipsum</td>
                 <td>dolor</td>
                 <td>sit</td>
             </tr>
+            {{ end }}
             <tr>
                 <td>1,002</td>
                 <td>amet</td>

@@ -4,10 +4,10 @@
         <div class="form-group">
             <label for="title">Tittel:</label>
             <input style="max-width: 650px" type="text" class="form-control" ng-model="title" ng-value="title" id="title" placeholder="Tittel">
+            <label for="longitude">Latitude:</label>
+            <input style="max-width: 650px" type="number" class="form-control" ng-model="latitude" ng-value="latitude" id="latitude" placeholder="Latitude">
             <label for="longitude">Longitude:</label>
-            <input style="max-width: 650px" type="text" class="form-control" ng-model="longitude" ng-value="longitude" id="longitude" placeholder="Longitude">
-            <label for="latidude">Latitude:</label>
-            <input style="max-width: 650px" type="text" class="form-control" ng-model="latitude" ng-value="latitude" id="latidude" placeholder="Latitude">
+            <input style="max-width: 650px" type="number" class="form-control" ng-model="longitude" ng-value="longitude" id="longitude" placeholder="Longitude">
         </div>
         <h3 style="margin-top: 50px;" class="sub-header">Legg til Spørsmål:</h3>
         <div class="questions" style="max-width: 650px" ng-repeat="q in questions">

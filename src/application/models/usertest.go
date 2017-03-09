@@ -3,6 +3,7 @@ package models
 import (
 	"gopkg.in/mgo.v2"
 	"log"
+	"gopkg.in/mgo.v2/bson"
 )
 
 type Question struct {
@@ -12,8 +13,10 @@ type Question struct {
 
 
 type UserTest struct {
+	Id    bson.ObjectId `bson:"_id,omitempty"`
 	Title string
-	Location string
+	Latitude float32
+	Longitude float32
 	Questions[] Question
 }
 
