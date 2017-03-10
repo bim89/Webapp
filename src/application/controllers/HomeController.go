@@ -13,7 +13,7 @@ func (*HomeController) Index(res http.ResponseWriter, req *http.Request) {
 	ut := models.UserTest{}
 	usertests := ut.FindAll()
 
-	createTemplate("Index", "home", "layout", usertests, res, req)
+	createTemplate("index", "home", "layout", usertests, res, req)
 
 }
 
