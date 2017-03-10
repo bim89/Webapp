@@ -1,0 +1,49 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CEApp - {{template "title"}}</title>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/assets/stylesheets/dashboard.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+</head>
+<body ng-app="app">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid col-md-10 centered">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">CEApp</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Oversikt</a></li>
+                <li><a href="/ny-undersokelse">Ny undersøkelse</a></li>
+                <li><a href="/innstillinger">Innstillinger</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+        {{ template "body" }}
+</div>
+
+<script src="/assets/js/jquery-3.1.1.min.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<script src="/assets/js/angular.min.js"></script>
+<script>
+    var App = angular.module('app', []);
+</script>
+
+<!-- Angular Controllers: -->
+<script src="/assets/js/controllers/createController.js"></script>
+
+</body>
+</html>
+{{end}}
