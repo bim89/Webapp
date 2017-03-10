@@ -8,8 +8,8 @@ import (
 )
 
 type Question struct {
-	Question string
-	Type string
+	Question string `json:"question"`
+	Type string `json:"type"`
 }
 
 
