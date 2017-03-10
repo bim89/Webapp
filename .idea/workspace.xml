@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ee2d2a4-617c-47f9-a348-0624dc28678f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pkg/linux_amd64/github.com/gorilla/mux.a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/src/github.com/gorilla/mux" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/application/templates/home/Index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/assets/js/controllers/createController.js" afterPath="$PROJECT_DIR$/src/application/assets/js/controllers/createController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/assets/templates/addQuestions.html" afterPath="$PROJECT_DIR$/src/application/assets/templates/addQuestions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/controllers/HomeController.go" afterPath="$PROJECT_DIR$/src/application/controllers/HomeController.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/models/base.go" afterPath="$PROJECT_DIR$/src/application/models/base.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/models/usertest.go" afterPath="$PROJECT_DIR$/src/application/models/usertest.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/templates/home/index.html" afterPath="$PROJECT_DIR$/src/application/templates/home/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/templates/layout/layout.html" afterPath="$PROJECT_DIR$/src/application/templates/layout/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/main.go" afterPath="$PROJECT_DIR$/src/main/main.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/templates/home/Index.html" afterPath="$PROJECT_DIR$/src/application/templates/home/Index.html" />
     </list>
     <ignored path="go.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,12 +28,23 @@
       <file leaf-file-name="HomeController.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/controllers/HomeController.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            <state relative-caret-position="150">
+              <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding>
+                <element signature="e#21#65#0" expanded="true" />
                 <marker date="1489137230000" expanded="true" signature="321:323" ph="{...}" />
                 <marker date="1489137230000" expanded="true" signature="398:490" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/application/templates/home/Index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -72,6 +71,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="UserTestResource.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/UserTestResource.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="10" column="53" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="UserTestController.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/controllers/UserTestController.go">
           <provider selected="true" editor-type-id="text-editor">
@@ -82,7 +91,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="homeResource.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/homeResource.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="53" selection-start-line="8" selection-start-column="18" selection-end-line="11" selection-end-column="53" />
+              <folding>
+                <element signature="e#14#77#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/assets/js/controllers/createController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -102,28 +123,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="usertest.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/models/usertest.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-              <folding>
-                <element signature="e#16#76#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/models/user.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="base.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/models/base.go">
           <provider selected="true" editor-type-id="text-editor">
@@ -131,18 +130,6 @@
               <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding>
                 <element signature="e#16#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/controllers/base.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
-              <folding>
-                <element signature="e#21#126#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -196,7 +183,6 @@
         <option value="$PROJECT_DIR$/src/application/controllers/userTestController.go" />
         <option value="$PROJECT_DIR$/src/main/UserTestResource.go" />
         <option value="$PROJECT_DIR$/src/application/controllers/UserTestController.go" />
-        <option value="$PROJECT_DIR$/src/application/templates/home/Index.html" />
         <option value="$PROJECT_DIR$/src/main/homeResource.go" />
         <option value="$PROJECT_DIR$/src/application/controllers/base.go" />
         <option value="$PROJECT_DIR$/src/application/templates/home/index.html" />
@@ -207,6 +193,7 @@
         <option value="$PROJECT_DIR$/src/application/controllers/HomeController.go" />
         <option value="$PROJECT_DIR$/src/application/assets/templates/addQuestions.html" />
         <option value="$PROJECT_DIR$/src/application/assets/js/controllers/createController.js" />
+        <option value="$PROJECT_DIR$/src/application/templates/home/Index.html" />
       </list>
     </option>
   </component>
@@ -723,7 +710,7 @@
       <workItem from="1488537358959" duration="23690000" />
       <workItem from="1489061540770" duration="85000" />
       <workItem from="1489061632223" duration="1343000" />
-      <workItem from="1489070770090" duration="2457000" />
+      <workItem from="1489070770090" duration="3209000" />
     </task>
     <servers />
   </component>
@@ -745,7 +732,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162882000" />
+    <option name="totallyTimeSpent" value="163634000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1023" extended-state="6" />
@@ -827,6 +814,7 @@
         <state relative-caret-position="180">
           <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
           <folding>
+            <element signature="e#21#65#0" expanded="true" />
             <marker date="1489137230000" expanded="true" signature="321:323" ph="{...}" />
             <marker date="1489137230000" expanded="true" signature="398:490" ph="{...}" />
           </folding>
@@ -928,32 +916,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/UserTestResource.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="53" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/application/templates/home/settings.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/homeResource.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="53" selection-start-line="8" selection-start-column="18" selection-end-line="11" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/templates/home/Index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2216">
-          <caret line="149" column="32" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -991,17 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/controllers/HomeController.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding>
-            <marker date="1489137230000" expanded="true" signature="321:323" ph="{...}" />
-            <marker date="1489137230000" expanded="true" signature="398:490" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/application/models/usertest.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1030,13 +985,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/main.go">
+    <entry file="file://$PROJECT_DIR$/src/application/assets/js/controllers/createController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="e#14#76#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="330">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1048,6 +1001,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/controllers/HomeController.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding>
+            <element signature="e#21#65#0" expanded="true" />
+            <marker date="1489137230000" expanded="true" signature="321:323" ph="{...}" />
+            <marker date="1489137230000" expanded="true" signature="398:490" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/application/controllers/UserTestController.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1056,10 +1021,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/assets/js/controllers/createController.js">
+    <entry file="file://$PROJECT_DIR$/src/main/homeResource.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="11" column="53" selection-start-line="8" selection-start-column="18" selection-end-line="11" selection-end-column="53" />
+          <folding>
+            <element signature="e#14#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="e#14#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/UserTestResource.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="53" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/templates/home/Index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
           <folding />
         </state>
       </provider>
