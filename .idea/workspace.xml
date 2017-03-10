@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ee2d2a4-617c-47f9-a348-0624dc28678f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/controllers/HomeController.go" afterPath="$PROJECT_DIR$/src/application/controllers/HomeController.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/templates/home/index.html" afterPath="$PROJECT_DIR$/src/application/templates/home/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/templates/layout/layout.html" afterPath="$PROJECT_DIR$/src/application/templates/layout/layout.html" />
-    </list>
+    <list default="true" id="7ee2d2a4-617c-47f9-a348-0624dc28678f" name="Default" comment="" />
     <ignored path="go.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -577,7 +572,7 @@
       <workItem from="1488537358959" duration="23690000" />
       <workItem from="1489061540770" duration="85000" />
       <workItem from="1489061632223" duration="1343000" />
-      <workItem from="1489070770090" duration="1286000" />
+      <workItem from="1489070770090" duration="1877000" />
     </task>
     <servers />
   </component>
@@ -599,7 +594,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161711000" />
+    <option name="totallyTimeSpent" value="162302000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1023" extended-state="6" />
