@@ -40,22 +40,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>{{ .Title }}</td>
-                <td>asdfew</td>
-                <td>asd</td>
-                <td>amet</td>
-                <td>sit</td>
-            </tr>
 
 
-            {{ range $key, $val := .Elements }}
+            {{ range $key, $val := . }}
             <tr>
-                            <td>{{ $key }}</td>
-                            <td>asdfew</td>
-                            <td>asd</td>
-                            <td>amet</td>
-                            <td>sit</td>
+                            <td>{{ $val.Id.Hex }} </td>
+                            <td>{{ $val.Title }}</td>
+                            <td>{{ len $val.Questions }}</td>
+                            <td>0</td>
+                            <td>0</td>
                         </tr>
             </tbody>
             {{ end }}
