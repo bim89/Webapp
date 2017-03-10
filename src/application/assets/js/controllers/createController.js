@@ -23,7 +23,6 @@ App.controller('createCtrl', function($scope, $http) {
     }
 
     $scope.createUserTest = function() {
-        console.log($scope.latitude + " - " + $scope.longitude);
         if ($scope.questions.length >= 1 && $scope.questions[0].question.length > 0) {
             data = {"title": $scope.title, "latitude": $scope.latitude, "longitude": $scope.longitude, "questions": $scope.questions};
             $http.post("/usertest/create", data);
