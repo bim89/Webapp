@@ -31,5 +31,4 @@ App.controller('createCtrl', function($scope, $http) {
             alert("Your form is empty");
         }
     }
-
 });

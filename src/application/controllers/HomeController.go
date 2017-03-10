@@ -22,6 +22,14 @@ func (HomeController) Create(res http.ResponseWriter, req *http.Request) {
 	createTemplate("create", "home", "layout", nil, res, req)
 }
 
+func (HomeController) Show(res http.ResponseWriter, req *http.Request) {
+	// renderView(res, req, nil
+	id := req.FormValue("t")
+	ut := models.UserTest{}
+
+	createTemplate("show", "home", "layout", ut.FindId(id), res, req)
+}
+
 func (*HomeController) Settings(res http.ResponseWriter, req *http.Request) {
 	// renderView(res, req, nil)
 	createTemplate("settings", "home", "layout", nil, res, req)

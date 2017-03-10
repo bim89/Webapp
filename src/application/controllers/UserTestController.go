@@ -21,3 +21,9 @@ func (*UserTestController) Read(res http.ResponseWriter, req *http.Request) {
 	// res.Header().Set("Content-Type", "application/vnd.api+sjon")
 	json.NewEncoder(res).Encode(list)
 }
+
+
+func (*UserTestController) Delete(res http.ResponseWriter, req *http.Request) {
+	ut := models.UserTest{}
+	ut.Delete(req.FormValue("t"))
+}

@@ -35,19 +35,21 @@
             <tr>
                 <th style="width:15%">Dato</th>
                 <th style="width: 30%">Tittel</th>
-                <th style="width: 15%">Antall Spørsmål</th>
-                <th style="width: 15%">Antall Brukertester</th>
+                <th style="width: 10%">Antall Spørsmål</th>
+                <th style="width: 10%">Antall Brukertester</th>
                 <th style="width: 10%">Score</th>
+                <th style="width: 5%"></th>
             </tr>
             </thead>
             <tbody>
              {{ range $index, $elem := . }}
             <tr>
                 <td>--</td>
-                <td>{{ $elem.Title }} </td>
+                <td><a href='/brukerundersokelse?t={{ $elem.Id.Hex }}'>{{ $elem.Title }}</a></td>
                 <td>{{ len $elem.Questions }} </td>
                 <td>0</td>
                 <td>0</td>
+                <td><a href='/usertest/delete?t={{ $elem.Id.Hex }}'>Slett</a></td>
             </tr>
              {{ end }}
             </tbody>
