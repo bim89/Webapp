@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ee2d2a4-617c-47f9-a348-0624dc28678f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/templates/home/Index.html" afterPath="$PROJECT_DIR$/src/application/templates/home/Index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/application/templates/home/Index.html" afterPath="$PROJECT_DIR$/src/application/templates/home/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="go.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/application/templates/home/Index.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/application/templates/home/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+            <state relative-caret-position="358">
+              <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -185,7 +186,6 @@
         <option value="$PROJECT_DIR$/src/application/controllers/UserTestController.go" />
         <option value="$PROJECT_DIR$/src/main/homeResource.go" />
         <option value="$PROJECT_DIR$/src/application/controllers/base.go" />
-        <option value="$PROJECT_DIR$/src/application/templates/home/index.html" />
         <option value="$PROJECT_DIR$/src/main/main.go" />
         <option value="$PROJECT_DIR$/src/application/templates/layout/layout.html" />
         <option value="$PROJECT_DIR$/src/application/models/usertest.go" />
@@ -194,6 +194,7 @@
         <option value="$PROJECT_DIR$/src/application/assets/templates/addQuestions.html" />
         <option value="$PROJECT_DIR$/src/application/assets/js/controllers/createController.js" />
         <option value="$PROJECT_DIR$/src/application/templates/home/Index.html" />
+        <option value="$PROJECT_DIR$/src/application/templates/home/index.html" />
       </list>
     </option>
   </component>
@@ -710,7 +711,7 @@
       <workItem from="1488537358959" duration="23690000" />
       <workItem from="1489061540770" duration="85000" />
       <workItem from="1489061632223" duration="1343000" />
-      <workItem from="1489070770090" duration="3209000" />
+      <workItem from="1489070770090" duration="3608000" />
     </task>
     <servers />
   </component>
@@ -732,7 +733,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163634000" />
+    <option name="totallyTimeSpent" value="164033000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1023" extended-state="6" />
@@ -804,7 +805,7 @@
         <state relative-caret-position="285">
           <caret line="19" column="58" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="58" />
           <folding>
-            <element signature="e#21#126#0" expanded="true" />
+            <element signature="e#21#126#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -829,7 +830,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/templates/home/Index.html">
+    <entry file="file://$PROJECT_DIR$/src/application/templates/home/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
@@ -865,7 +866,7 @@
         <state relative-caret-position="90">
           <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
           <folding>
-            <element signature="e#21#126#0" expanded="true" />
+            <element signature="e#21#126#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -952,7 +953,7 @@
         <state relative-caret-position="870">
           <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
           <folding>
-            <element signature="e#21#126#0" expanded="true" />
+            <element signature="e#21#126#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -962,7 +963,7 @@
         <state relative-caret-position="360">
           <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding>
-            <element signature="e#16#76#0" expanded="true" />
+            <element signature="e#16#76#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1049,10 +1050,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/templates/home/Index.html">
+    <entry file="file://$PROJECT_DIR$/src/application/templates/home/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+        <state relative-caret-position="358">
+          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
           <folding />
         </state>
       </provider>

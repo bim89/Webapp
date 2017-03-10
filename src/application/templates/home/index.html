@@ -31,6 +31,7 @@
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
+
             <tr>
                 <th style="width:15%">Dato</th>
                 <th style="width: 30%">Tittel</th>
@@ -40,15 +41,15 @@
             </tr>
             </thead>
             <tbody>
-            {{ range $index, $elem := . }}
+             {{ range $index, $elem := . }}
             <tr>
-                <td>1,001</td>
-                <td>{{ .Title }}</td>
-                <td>{{ len .Questions }}</td>
+                <td>--</td>
+                <td>{{ $elem.Title }} </td>
+                <td>{{ len $elem.Questions }} </td>
                 <td>0</td>
                 <td>0</td>
             </tr>
-            {{ end }}
+             {{ end }}
             </tbody>
         </table>
     </div>
