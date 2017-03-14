@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"encoding/json"
 	"application/models"
+	"fmt"
+	"github.com/golang/glog"
 )
 
 type UserTestController struct {
@@ -25,5 +27,9 @@ func (*UserTestController) Read(res http.ResponseWriter, req *http.Request) {
 
 func (*UserTestController) Delete(res http.ResponseWriter, req *http.Request) {
 	ut := models.UserTest{}
-	ut.Delete(req.FormValue("t"))
+	message, err := ut.Delete(req.FormValue("t"))
+	fmt.Fprintf(res, message)
+	if err != nil {
+		glog.Warning(err)
+	}
 }

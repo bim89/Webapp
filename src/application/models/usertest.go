@@ -8,8 +8,8 @@ import (
 )
 
 type Question struct {
-	Question string `json:"question"`
-	Type string `json:"type"`
+	Question string 	`json:"question"`
+	Type string 		`json:"type"`
 }
 
 
@@ -92,7 +92,7 @@ func (ut UserTest) Save() {
 	}
 }
 
-func (* UserTest) Delete(id string) {
+func (* UserTest) Delete(id string) (string, error) {
 	session, err := mgo.Dial("localhost:27017")
 	if err != nil {
 		panic(err)
@@ -108,12 +108,12 @@ func (* UserTest) Delete(id string) {
 		err = c.RemoveId(bson.ObjectIdHex(id))
 
 		if err != nil {
-			println(err)
+			return err.Error(), err
 		} else {
-			println("Usertest was deleted")
+			return "User Test was deleted", err
 		}
 	} else {
-		print("Not a valid input")
+		return "Not a valid input", err
 	}
 
 }
