@@ -19,8 +19,7 @@ func (u User) Save(user User) {
 	}
 	defer session.Close()
 
-	// Optional. Switch the session to a monotonic behavior.
-	session.SetMode(mgo.Monotonic, true)
+
 
 	c := session.DB("CEApp").C("user")
 	index := mgo.Index{

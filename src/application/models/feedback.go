@@ -2,6 +2,7 @@ package models
 
 import (
 	"gopkg.in/mgo.v2/bson"
+	"gopkg.in/mgo.v2"
 )
 
 
@@ -15,3 +16,18 @@ type Feedback struct {
 	UsertestId 	bson.ObjectId 		`json:"usertestId"`
 	Answers[] 	Answer			`json:"answers"`
 }
+
+
+func (f Feedback) Save() (string, error) {
+
+	c, session := getCollection("feedback")
+	defer session.Close()
+
+	err := c.Insert(f)
+	if mgo.IsDup(err) {
+		return "Duplicate Insert", err
+	} else {
+		return "Your feedback was added", err
+	}
+}
+

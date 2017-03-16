@@ -9,14 +9,12 @@ import (
 
 func main() {
 	routes := mux.NewRouter().StrictSlash(true)
-	// dbHandler()
-
-
 	homeResource(routes)
 
-	api := routes.PathPrefix("/usertest/").Subrouter()
-	userTestResource(api)
-	answersResource(api)
+	ut := routes.PathPrefix("/usertest/").Subrouter()
+	userTestResource(ut)
+	f := routes.PathPrefix("/feedback/").Subrouter()
+	feedbackResource(f)
 
 	// Including assets:
 	routes.PathPrefix("/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("./src/application/assets/"))))

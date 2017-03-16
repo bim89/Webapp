@@ -51,18 +51,11 @@ func (* UserTest) FindId(id string) UserTest {
 }
 
 func (* UserTest) FindAll() []UserTest {
-	session, err := mgo.Dial("localhost:27017")
-	if err != nil {
-		panic(err)
-	}
+	c, session := getCollection("usertests")
 	defer session.Close()
 
-	// Optional. Switch the session to a monotonic behavior.
-	session.SetMode(mgo.Monotonic, true)
-
-	c := session.DB("CEApp").C("usertests")
 	var results []UserTest
-	err = c.Find(nil).All(&results)
+	err := c.Find(nil).All(&results)
 	if err != nil {
 		return nil
 	} else {
@@ -72,18 +65,11 @@ func (* UserTest) FindAll() []UserTest {
 }
 
 func (ut UserTest) Save() {
-	session, err := mgo.Dial("localhost:27017")
-	if err != nil {
-		panic(err)
-	}
+
+	c, session := getCollection("usertests")
 	defer session.Close()
 
-	// Optional. Switch the session to a monotonic behavior.
-	session.SetMode(mgo.Monotonic, true)
-
-	c := session.DB("CEApp").C("usertests")
-
-	err = c.Insert(ut)
+	err := c.Insert(ut)
 	if mgo.IsDup(err) {
 		log.Println(err)
 	}
@@ -93,19 +79,12 @@ func (ut UserTest) Save() {
 }
 
 func (* UserTest) Delete(id string) (string, error) {
-	session, err := mgo.Dial("localhost:27017")
-	if err != nil {
-		panic(err)
-	}
+
+	c, session := getCollection("usertests")
 	defer session.Close()
 
-	// Optional. Switch the session to a monotonic behavior.
-	session.SetMode(mgo.Monotonic, true)
-
-	c := session.DB("CEApp").C("usertests")
-
 	if bson.IsObjectIdHex(id) {
-		err = c.RemoveId(bson.ObjectIdHex(id))
+		err := c.RemoveId(bson.ObjectIdHex(id))
 
 		if err != nil {
 			return err.Error(), err
@@ -113,7 +92,7 @@ func (* UserTest) Delete(id string) (string, error) {
 			return "User Test was deleted", err
 		}
 	} else {
-		return "Not a valid input", err
+		return "Not a valid input", nil
 	}
 
 }

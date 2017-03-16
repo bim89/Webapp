@@ -5,7 +5,7 @@ import (
 	"application/controllers"
 )
 
-func answersResource(r *mux.Router) {
-	a := controllers.AnswersController{}
+func feedbackResource(r *mux.Router) {
+	a := controllers.FeedbackController{}
 	r.HandleFunc("/create", a.Create).Methods("POST")
 }
