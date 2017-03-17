@@ -34,3 +34,9 @@ func (*HomeController) Settings(res http.ResponseWriter, req *http.Request) {
 	// renderView(res, req, nil)
 	createTemplate("settings", "home", "layout", nil, res, req)
 }
+
+func (*HomeController) Login(res http.ResponseWriter, req *http.Request) {
+	// renderView(res, req, nil)
+	// createTemplate("login", "home", "", nil, res, req)
+	serveFile("login", "home", nil, res, req)
+}

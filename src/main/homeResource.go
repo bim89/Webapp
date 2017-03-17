@@ -11,9 +11,9 @@ func loggedIn(next func(http.ResponseWriter, *http.Request)) func(http.ResponseW
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		c,_ := r.Cookie("loggedIn")
 		if c != nil {
-			redirect(w, r)
-		} else {
 			next(w, r)
+		} else {
+			redirect(w, r)
 		}
 
 		log.Println("Executing middlewareTwo again")
@@ -27,8 +27,9 @@ func redirect(w http.ResponseWriter, r *http.Request) {
 func homeResource(r *mux.Router) {
 	Home := controllers.HomeController{}
 
-	r.HandleFunc("/", Home.Index).Methods("GET")
-	r.HandleFunc("/brukerundersokelse", Home.Show).Methods("GET")
-	r.HandleFunc("/ny-undersokelse", Home.Create).Methods("GET")
-	r.HandleFunc("/innstillinger", Home.Settings).Methods("GET")
+	r.HandleFunc("/", loggedIn(Home.Index)).Methods("GET")
+	r.HandleFunc("/brukerundersokelse", loggedIn(Home.Show)).Methods("GET")
+	r.HandleFunc("/ny-undersokelse", loggedIn(Home.Create)).Methods("GET")
+	r.HandleFunc("/innstillinger", loggedIn(Home.Settings)).Methods("GET")
+	r.HandleFunc("/login", Home.Login).Methods("GET")
 }

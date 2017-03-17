@@ -42,3 +42,4 @@ func (*UserTestController) Delete(res http.ResponseWriter, req *http.Request) {
 		glog.Warning(err)
 	}
 }
+

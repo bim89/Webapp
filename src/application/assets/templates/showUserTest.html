@@ -7,7 +7,7 @@
 
     <li ng-repeat="q in ut.questions">
         <h3>{{ q.question }} <small>({{ q.type }})</small></h3>
-        <p>Gjennomsnitt: {{ getAverage($index).toFixed(1) }}</p>
+        <p ng-if="hasFeedback()">Gjennomsnitt: {{ getAverage($index).toFixed(1) }}</p>
     </li>
 </ul>
-<p>Total Score: {{ getScore().toFixed(1) }}</p>
+<p ng-if="hasFeedback()">Total Score: {{ getScore().toFixed(1) }}</p>

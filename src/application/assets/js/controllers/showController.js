@@ -31,4 +31,8 @@ App.controller('showCtrl', function($scope, $http) {
         return total;
     }
 
+    $scope.hasFeedback = function() {
+        return $scope.ut.feedback.length > 0
+    }
+
 });

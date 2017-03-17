@@ -54,6 +54,7 @@ func renderViewWithFile(file string, data interface{}, res http.ResponseWriter, 
 }
 
 func createTemplate(file string, folder string, layout string, data interface{}, res http.ResponseWriter, req *http.Request) {
+
 	lp := path.Join(templatesDir(layout), fmt.Sprintf("%s.html", layout))
 	fp := path.Join(templatesDir(folder), fmt.Sprintf("%s.html", file))
 
@@ -64,6 +65,19 @@ func createTemplate(file string, folder string, layout string, data interface{},
 	}
 
 	if err := tmpl.ExecuteTemplate(res, layout, data); err != nil {
+		http.Error(res, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func serveFile(file string, folder string, data interface{}, res http.ResponseWriter, req *http.Request) {
+	fp := path.Join(templatesDir(folder), fmt.Sprintf("%s.html", file))
+	t, err := template.ParseFiles(fp)
+	if err != nil {
+		http.Error(res, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	if err := t.ExecuteTemplate(res, fp, nil); err != nil {
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 	}
 }
