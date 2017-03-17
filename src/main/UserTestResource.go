@@ -10,6 +10,7 @@ func userTestResource(r *mux.Router) {
 
 	r.HandleFunc("/create", ut.Create).Methods("POST")
 	r.HandleFunc("/read", ut.Read).Methods("GET")
+	r.HandleFunc("/show", ut.Show).Methods("GET")
 	r.HandleFunc("/delete", ut.Delete).Methods("GET")
 	// r.HandleFunc("/innstillinger", Home.Settings).Methods("GET")
 }

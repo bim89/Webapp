@@ -25,9 +25,9 @@ func (HomeController) Create(res http.ResponseWriter, req *http.Request) {
 func (HomeController) Show(res http.ResponseWriter, req *http.Request) {
 	// renderView(res, req, nil
 	id := req.FormValue("t")
-	ut := models.UserTest{}
+	// ut := models.UserTest{}
 
-	createTemplate("show", "home", "layout", ut.FindId(id), res, req)
+	createTemplate("show", "home", "layout", id, res, req)
 }
 
 func (*HomeController) Settings(res http.ResponseWriter, req *http.Request) {

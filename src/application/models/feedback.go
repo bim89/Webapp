@@ -13,7 +13,7 @@ type Answer struct {
 
 type Feedback struct {
 	Id    		bson.ObjectId 		`bson:"_id,omitempty"`
-	UsertestId 	bson.ObjectId 		`json:"usertestId"`
+	UsertestId 	bson.ObjectId 		`bson:",omitempty"`
 	Answers[] 	Answer			`json:"answers"`
 }
 

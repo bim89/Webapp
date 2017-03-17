@@ -11,10 +11,9 @@ func main() {
 	routes := mux.NewRouter().StrictSlash(true)
 	homeResource(routes)
 
-	ut := routes.PathPrefix("/usertest/").Subrouter()
-	userTestResource(ut)
-	f := routes.PathPrefix("/feedback/").Subrouter()
-	feedbackResource(f)
+	userTestResource(routes.PathPrefix("/usertest/").Subrouter())
+
+	feedbackResource(routes.PathPrefix("/feedback/").Subrouter())
 
 	// Including assets:
 	routes.PathPrefix("/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("./src/application/assets/"))))

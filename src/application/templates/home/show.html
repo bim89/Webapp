@@ -1,16 +1,8 @@
 {{define "title"}}Innstillinger{{end}}
 
 {{define "body"}}
-<div class="col-md-10 col-md-offset-1 centered main">
-    <h1 class="page-header">Analyse: {{ .Title }}</h1>
-    <p>Posisjon: {{ .Latitude }}, {{ .Longitude }}</p>
+<div class="col-md-10 col-md-offset-1 centered main" ng-controller="showCtrl" ng-init="init('{{ . }}')" ng-include="'/assets/templates/showUserTest.html'">
 
-    <h3>Spørsmål</h3>
-    <ul>
-    {{ range $index, $elem := .Questions }}
-        <li>{{ $elem.Question }} <small>({{ $elem.Type }})</small></li>
-    {{ end }}
-    </ul>
 
 </div>
 {{end}}
