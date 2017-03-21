@@ -9,6 +9,7 @@ import (
 )
 
 type UserTestController struct {
+
 }
 
 func (*UserTestController) Create(res http.ResponseWriter, req *http.Request) {

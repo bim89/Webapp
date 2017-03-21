@@ -23,6 +23,11 @@ func templatesDir(directory string) string {
 	return fmt.Sprintf("src/application/templates/%s", directory)
 }
 
+func layoutDir(directory string) string {
+	return fmt.Sprintf("src/application/templates/layout/")
+}
+
+
 func renderView(res http.ResponseWriter, req *http.Request, data interface{}) {
 
 	pc := make([]uintptr, 100) // at least 1 entry needed
@@ -55,7 +60,7 @@ func renderViewWithFile(file string, data interface{}, res http.ResponseWriter, 
 
 func createTemplate(file string, folder string, layout string, data interface{}, res http.ResponseWriter, req *http.Request) {
 
-	lp := path.Join(templatesDir(layout), fmt.Sprintf("%s.html", layout))
+	lp := path.Join(layoutDir(layout), fmt.Sprintf("%s.html", layout))
 	fp := path.Join(templatesDir(folder), fmt.Sprintf("%s.html", file))
 
 	tmpl, err := template.ParseFiles(fp, lp)
