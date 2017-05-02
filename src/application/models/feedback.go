@@ -13,13 +13,12 @@ type Answer struct {
 
 type Feedback struct {
 	Id    		bson.ObjectId 		`bson:"_id,omitempty"`
-	UsertestId 	bson.ObjectId 		`bson:",omitempty"`
+	UsertestId 	bson.ObjectId 		`json:"usertestid" bson:",omitempty"`
 	Answers[] 	Answer			`json:"answers"`
 }
 
 
 func (f Feedback) Save() (string, error) {
-
 	c, session := getCollection("feedback")
 	defer session.Close()
 

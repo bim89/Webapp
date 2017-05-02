@@ -1,7 +1,6 @@
 package models
 
 import (
-	"fmt"
 	"gopkg.in/mgo.v2"
 	"log"
 )
@@ -9,10 +8,11 @@ import (
 type User struct {
 	Name  string
 	Email string
+	Password string
+	UUID  string
 }
 
 func (u User) Save(user User) {
-	fmt.Println("Name:", user.Name)
 	session, err := mgo.Dial("localhost:27017")
 	if err != nil {
 		panic(err)
@@ -31,7 +31,7 @@ func (u User) Save(user User) {
 		log.Fatal(err)
 	}
 
-	err = c.Insert(&User{u.Name, u.Email})
+	err = c.Insert(&User{u.Name, u.Email, u.Password, u.UUID})
 	if mgo.IsDup(err) {
 		log.Println(err)
 	}

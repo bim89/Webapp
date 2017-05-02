@@ -8,7 +8,9 @@ import (
 )
 
 type FeedbackController struct {
+
 }
+
 
 func (*FeedbackController) Create(res http.ResponseWriter, req *http.Request) {
 	f := models.Feedback{}
@@ -19,5 +21,4 @@ func (*FeedbackController) Create(res http.ResponseWriter, req *http.Request) {
 	} else {
 		fmt.Fprintf(res, msg)
 	}
-
 }

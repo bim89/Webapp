@@ -4,19 +4,28 @@ import (
 	"application/controllers"
 	"github.com/gorilla/mux"
 	"net/http"
-	"log"
+	"application/config"
 )
+
+
+type Val struct {
+	loggedIn bool
+}
+
 
 func loggedIn(next func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		c,_ := r.Cookie("loggedIn")
-		if c != nil {
+		session, err := config.Sessions().Get(r, "AUTH")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		if session.Values["loggedIn"] == true {
 			next(w, r)
 		} else {
 			redirect(w, r)
 		}
-
-		log.Println("Executing middlewareTwo again")
 	})
 }
 
