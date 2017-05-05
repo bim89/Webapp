@@ -1,7 +1,11 @@
-pkg/*
-.idea/*
-bin/*
+pkg/
+.idea/
+bin/
 .DS_Store
 *.swp
 *.swo
 web-api
+github.com/
+golang.org/  
+gopkg.in/
+pkg/ 
