@@ -2,7 +2,7 @@
  * Created by bim on 28.02.2017.
  */
 App.controller('createCtrl', function($scope, $http) {
-    $scope.questions = [{"question": "", "type": "", "choices": {"amount": 2, "answers": []}}];
+    $scope.questions = [{"question": "", "type": "", "choices": [], "amount": 2}];
 
     $scope.addQuestion = function() {
         if ($scope.questions[$scope.questions.length - 1].question) {
@@ -31,10 +31,10 @@ App.controller('createCtrl', function($scope, $http) {
     }
 
     $scope.addChoices = function(index) {
-        $scope.questions[index].choices.answers = [];
-        for(var i = 0; i < $scope.questions[index].choices.amount; i++) {
+        $scope.questions[index].choices = [];
+        for(var i = 0; i < $scope.questions[index].amount; i++) {
             answer = {"answer": ""};
-            $scope.questions[index].choices.answers.push(answer);
+            $scope.questions[index].choices.push(answer);
         }
     }
 });

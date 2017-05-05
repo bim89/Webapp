@@ -28,13 +28,13 @@
             </div>
             <div ng-if="q.type == 'flervalg'">
                 <label>Antall valg</label>
-                <select ng-model="q.choices.amount" style="max-width: 250px" class="form-control"  ng-change="addChoices($index)">
+                <select ng-model="q.amount" style="max-width: 250px" class="form-control"  ng-change="addChoices($index)">
                     <option value="2">2</option>
                     <option value="4">4</option>
                     <option value="6">6</option>
                 </select>
 
-                <div ng-repeat="a in q.choices.answers">
+                <div ng-repeat="a in q.choices">
                     <label>#{{$index + 1 }} Valg:</label>
                     <input type="text" class="form-control" class="question" ng-model="a.answer" ng-value="a.answer" width="40%">
                 </div>

@@ -10,6 +10,11 @@ import (
 type Question struct {
 	Question string 	`json:"question"`
 	Type string 		`json:"type"`
+	Choices[] Choices	`json:"choices"`
+}
+
+type Choices struct {
+	Answer string 		`json:"answer"`
 }
 
 
