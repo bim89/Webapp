@@ -2,9 +2,7 @@
  * Created by bim on 28.02.2017.
  */
 App.controller('createCtrl', function($scope, $http) {
-    $scope.questions = [{"question": "", "type": ""}];
-
-
+    $scope.questions = [{"question": "", "type": "", "choices": {"amount": 2, "answers": []}}];
 
     $scope.addQuestion = function() {
         if ($scope.questions[$scope.questions.length - 1].question) {
@@ -29,6 +27,14 @@ App.controller('createCtrl', function($scope, $http) {
             alert("You have just created your user test");
         } else {
             alert("Your form is empty");
+        }
+    }
+
+    $scope.addChoices = function(index) {
+        $scope.questions[index].choices.answers = [];
+        for(var i = 0; i < $scope.questions[index].choices.amount; i++) {
+            answer = {"answer": ""};
+            $scope.questions[index].choices.answers.push(answer);
         }
     }
 });

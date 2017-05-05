@@ -26,7 +26,21 @@
                     <option value="text">Tekst</option>
                 </select>
             </div>
+            <div ng-if="q.type == 'flervalg'">
+                <label>Antall valg</label>
+                <select ng-model="q.choices.amount" style="max-width: 250px" class="form-control"  ng-change="addChoices($index)">
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                </select>
+
+                <div ng-repeat="a in q.choices.answers">
+                    <label>#{{$index + 1 }} Valg:</label>
+                    <input type="text" class="form-control" class="question" ng-model="a.answer" ng-value="a.answer" width="40%">
+                </div>
+            </div>
         </div>
+
         <a href="#" ng-click="addQuestion()">Legg til flere</a><br />
 
         <button type="submit" style="margin-left: 20px;" class="btn btn-primary pull-right" ng-click="createUserTest()">Opprett Undersøkelse</button>
