@@ -9,6 +9,7 @@ import (
 type Answer struct {
 	Index	int	`json:"index"`
 	Score 	int	`json:"score"`
+	Answer	string	`json:"answer"`
 }
 
 type Feedback struct {
