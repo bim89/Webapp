@@ -17,6 +17,9 @@ func main() {
 	a := controllers.AuthController{}
 	routes.HandleFunc("/authenticate", a.Create).Methods("POST")
 	// routes.HandleFunc("/logout",).Methods("POST")
+	u := controllers.UserController{}
+	routes.HandleFunc("/user/login", u.Login).Methods("POST")
+
 
 	feedbackResource(routes.PathPrefix("/feedback/").Subrouter())
 

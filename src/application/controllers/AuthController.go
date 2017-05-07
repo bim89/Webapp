@@ -26,8 +26,6 @@ func (*AuthController) Create(res http.ResponseWriter, req *http.Request) {
 	if err := session.Save(req, res); err != nil {
 		log.Panic(err.Error())
 	}
-
-
 }
 
 func (*AuthController) Delete(res http.ResponseWriter, req *http.Request) {
