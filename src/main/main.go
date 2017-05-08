@@ -18,6 +18,7 @@ func main() {
 	routes.HandleFunc("/authenticate", a.Create).Methods("POST")
 	// routes.HandleFunc("/logout",).Methods("POST")
 	u := controllers.UserController{}
+	routes.HandleFunc("/user/create", u.Create).Methods("POST")
 	routes.HandleFunc("/user/login", u.Login).Methods("POST")
 
 

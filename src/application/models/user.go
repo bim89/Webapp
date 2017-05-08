@@ -22,7 +22,6 @@ type User struct {
 func (u User) CheckEmail(email string) (User, bool) {
 	c, session := getCollection("user")
 	defer session.Close()
-
 	/*
 	result := Person{}
 	err = c.Find(bson.M{"name": "Ale"}).One(&result)
@@ -57,7 +56,6 @@ func (u User) Save() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 
 	err = c.Insert(u)
 	if mgo.IsDup(err) {
