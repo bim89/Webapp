@@ -8,14 +8,14 @@ import (
 
 type User struct {
 	Id    		bson.ObjectId 	`bson:"_id,omitempty"`
-	Name  		string
-	Email 		string
-	Password 	string
-	Username	string
-	Age 		int
-	Gender		string
-	Admin		bool
-	UUID  		string
+	Name  		string		`json:"name"`
+	Email 		string		`json:"email"`
+	Password 	string		`json:"password"`
+	Username	string		`json:"username"`
+	Age 		int		`json:"age"`
+	Gender		string		`json:"gender"`
+	Admin		bool		`json:"admin"`
+	UUID  		string		`json:"uuid"`
 }
 
 
@@ -36,6 +36,20 @@ func (u User) CheckEmail(email string) (User, bool) {
 	}
 
 	return u, false
+}
+
+func (u User) Update(user User) bool {
+	c, session := getCollection("user")
+	defer session.Close()
+
+	err := c.UpdateId(u.Id, u)
+	if err != nil {
+		log.Panic(err)
+	} else {
+		return true
+	}
+
+	return false
 }
 
 func (u User) Save() {

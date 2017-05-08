@@ -50,7 +50,21 @@ func (*UserController) Login(res http.ResponseWriter, req *http.Request) {
 
 
 func (*UserController) Logout(res http.ResponseWriter, req *http.Request) {
-
+	u := models.User{}
+	email := req.FormValue("email")
+	uuid := req.FormValue("uuid")
+	u, hasMail := u.CheckEmail(email)
+	if (hasMail) {
+		if (u.Email == email && u.UUID == uuid) {
+			u.UUID = ""
+			u.Update(u)
+			fmt.Fprint(res, "You have been logged out")
+		} else {
+			fmt.Fprint(res, "UUID did not match with given email")
+		}
+	} else {
+		fmt.Fprint(res, "The given email does not exist")
+	}
 }
 
 
