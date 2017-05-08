@@ -40,7 +40,7 @@ func (*UserController) Login(res http.ResponseWriter, req *http.Request) {
 	if (hasMail) {
 		if (u.Email == email && u.Password == password) {
 			u.UUID = uuid.NewV4().String()
-			u = u.Update(u)
+			u.Update(u)
 			msg := fmt.Sprintf("{'UUID': '%s', 'msg': 'You have been logged in'}", u.UUID)
 			fmt.Fprint(res, msg)
 		} else {
