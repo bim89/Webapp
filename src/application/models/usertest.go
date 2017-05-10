@@ -71,12 +71,12 @@ func (* UserTest) FindAll(email string) []UserTest {
 
 	if (email != "") {
 		c.Find(bson.M{"email": email}).All(&results)
-		admin := Admin{}.GetByEmail(results[0].Email)
-		results[0].Admin = admin
+		// admin := Admin{}.GetByEmail(results[0].Email)
+		// results[0].Admin = admin
 	} else {
 		c.Find(nil).All(&results)
-		admin := Admin{}.GetByEmail(results[0].Email)
-		results[0].Admin = admin
+		// admin := Admin{}.GetByEmail(results[0].Email)
+		// results[0].Admin = admin
 	}
 
 	return results

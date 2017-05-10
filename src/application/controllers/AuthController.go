@@ -6,6 +6,7 @@ import (
 	"log"
 	"application/config"
 	"application/models"
+	"golang.org/x/crypto/bcrypt"
 )
 
 type AuthController struct {
@@ -18,7 +19,7 @@ func (*AuthController) Create(res http.ResponseWriter, req *http.Request) {
 	var a = models.Admin{}
 	a = a.GetByEmail(email)
 
-	if (a.Password == password && a.Email == email) {
+	if err := bcrypt.CompareHashAndPassword([]byte(a.Password), []byte(password)); err == nil {
 		session, err := config.Sessions().Get(req, "AUTH")
 		if err != nil {
 			http.Error(res, err.Error(), http.StatusInternalServerError)

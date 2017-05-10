@@ -13,9 +13,9 @@ var _ = Suite(&AdminSuite{})
 
 func (adm *AdminSuite) TestSave(c *C) {
 	a := models.Admin{}
-	a.Email = "bimorstad@gmail.com"
+	a.Email = "joakim@gmail.com"
 	a.Password = "1234"
-	a.Store = "Joker Nord"
+	a.Store = "Kiwi Årnes"
 	a.UUID = uuid.NewV4().String()
 	a.Logo_image = "some_url.jpg"
 	a.Save()

@@ -4,6 +4,7 @@ import (
 	"gopkg.in/mgo.v2/bson"
 	"gopkg.in/mgo.v2"
 	"log"
+	"golang.org/x/crypto/bcrypt"
 )
 
 type Admin struct {
@@ -13,6 +14,7 @@ type Admin struct {
 	Store		string 		`json:"store"`
 	Logo_image	string		`json:"logo_image"`
 	UUID		string		`json:"-"`
+
 }
 
 
@@ -45,6 +47,10 @@ func (a *Admin) Save() {
 	if err != nil {
 		log.Panic(err)
 	}
+
+	hash, err := bcrypt.GenerateFromPassword([]byte(a.Password), bcrypt.DefaultCost)
+	a.Password = string(hash)
+
 
 	err = c.Insert(a)
 	if mgo.IsDup(err) {
