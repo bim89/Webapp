@@ -19,12 +19,14 @@ type Choices struct {
 
 
 type UserTest struct {
-	Id    bson.ObjectId 	`bson:"_id,omitempty"`
-	Title string 		`json:"title"`
-	Latitude float32 	`json:"latitude"`
-	Longitude float32 	`json:"longitude"`
-	Questions[] Question 	`json:"questions"`
-	Feedback[] Feedback 	`json:"feedback"`
+	Id    		bson.ObjectId 	`bson:"_id,omitempty"`
+	Title 		string 		`json:"title"`
+	Email	 	string		`json:"email"`
+	Latitude 	float32 	`json:"latitude"`
+	Longitude 	float32 	`json:"longitude"`
+	Questions[] 	Question 	`json:"questions"`
+	Feedback[] 	Feedback 	`json:"feedback"`
+	Admin		Admin		`json:"admin"`
 }
 
 func (* UserTest) FindId(id string) UserTest {
@@ -44,7 +46,6 @@ func (* UserTest) FindId(id string) UserTest {
 		if err != nil {
 			// return ut, err
 		} else {
-			log.Println("Feedback:")
 			feedback := session.DB("CEApp").C("feedback")
 			results := []Feedback{}
 			err = feedback.Find(bson.M{"usertestid": bson.ObjectIdHex(id)}).All(&results)
@@ -62,17 +63,24 @@ func (* UserTest) FindId(id string) UserTest {
 	return ut
 }
 
-func (* UserTest) FindAll() []UserTest {
+func (* UserTest) FindAll(email string) []UserTest {
 	c, session := getCollection("usertests")
 	defer session.Close()
 
 	var results []UserTest
-	err := c.Find(nil).All(&results)
-	if err != nil {
-		return nil
+
+	if (email != "") {
+		c.Find(bson.M{"email": email}).All(&results)
+		admin := Admin{}.GetByEmail(results[0].Email)
+		results[0].Admin = admin
 	} else {
-		return results
+		c.Find(nil).All(&results)
+		admin := Admin{}.GetByEmail(results[0].Email)
+		results[0].Admin = admin
 	}
+
+	return results
+
 
 }
 

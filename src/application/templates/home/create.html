@@ -1,5 +1,10 @@
 {{define "title"}}Ny Undersøkelse{{end}}
 
 {{define "body"}}
-<div ng-include="'/assets/templates/addQuestions.html'"></div>
+
+
+<div class="col-md-10 col-md-offset-1 centered main" ng-controller="createCtrl" ng-init="init('{{.email}}')"  ng-include="'/assets/templates/addQuestions.html'">
+
+</div>
+
 {{end}}

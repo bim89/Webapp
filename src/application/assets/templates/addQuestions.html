@@ -1,49 +1,52 @@
-<div class="col-md-10 col-md-offset-1 centered main" ng-controller="createCtrl">
-    <h1 class="page-header">Opprett Brukerundersøkelse:</h1>
-    <form>
+<h1 class="page-header">Opprett Brukerundersøkelse:</h1>
+<form>
+    <div class="form-group">
+        <label for="title">Tittel:</label>
+        {{ form.title }}
+        <input style="max-width: 650px" type="text" class="form-control" ng-model="form.title" ng-value="form.title" id="title" placeholder="Tittel">
+        <label for="longitude">Latitude:</label>
+        <input style="max-width: 650px" type="number" class="form-control" ng-model="form.latitude" ng-value="form.latitude" id="latitude" placeholder="Latitude">
+        <label for="longitude">Longitude:</label>
+        <input style="max-width: 650px" type="number" class="form-control" ng-model="form.longitude" ng-value="form.longitude" id="longitude" placeholder="Longitude">
+        <label for="longitude">Rekkevidde:<small> (melllom 20-200 meter)</small></label>
+        <input style="max-width: 650px" type="number" class="form-control" ng-model="form.distance" ng-value="form.distance" id="distance" placeholder="Rekkevidde">
+        <label for="longitude">Premie:<small> (Legg til en utvalgt premie for å fullføre brukerundersøkelsen, som f.eks tilbud på en bestemt vare)</small></label>
+        <input style="max-width: 650px" type="number" class="form-control" ng-model="form.reward" ng-value="form.reward" id="reward" placeholder="Premie">
+    </div>
+    <h3 style="margin-top: 50px;" class="sub-header">Legg til Spørsmål:</h3>
+    <div class="questions" style="max-width: 650px" ng-repeat="q in questions">
+        <h3>#{{ $index + 1 }}<span ng-if="q.question"> - {{ q.question }}</span></h3>
         <div class="form-group">
-            <label for="title">Tittel:</label>
-            <input style="max-width: 650px" type="text" class="form-control" ng-model="title" ng-value="title" id="title" placeholder="Tittel">
-            <label for="longitude">Latitude:</label>
-            <input style="max-width: 650px" type="number" class="form-control" ng-model="latitude" ng-value="latitude" id="latitude" placeholder="Latitude">
-            <label for="longitude">Longitude:</label>
-            <input style="max-width: 650px" type="number" class="form-control" ng-model="longitude" ng-value="longitude" id="longitude" placeholder="Longitude">
+            <label>Spørsmål:</label>
+            <input type="text" class="form-control" class="question" placeholder="Spørsmål" ng-model="q.question" ng-value="q.question">
         </div>
-        <h3 style="margin-top: 50px;" class="sub-header">Legg til Spørsmål:</h3>
-        <div class="questions" style="max-width: 650px" ng-repeat="q in questions">
-            <h3>#{{ $index + 1 }}<span ng-if="q.question"> - {{ q.question }}</span></h3>
-            <div class="form-group">
-                <label>Spørsmål:</label>
-                <input type="text" class="form-control" class="question" placeholder="Spørsmål" ng-model="q.question" ng-value="q.question">
-            </div>
-            <button type="button" class="btn btn-danger" ng-click="removeQuestion(indexOf(q))">X</button>
-            <div class="form-group">
-                <label>Type:</label>
-                <select ng-model="q.type" style="max-width: 250px" class="form-control">
-                    <option value="stemning">Stemning</option>
-                    <option value="gradering">Gradering</option>
-                    <option value="flervalg">Flervalg</option>
-                    <option value="text">Tekst</option>
-                </select>
-            </div>
-            <div ng-if="q.type == 'flervalg'">
-                <label>Antall valg</label>
-                <select ng-model="q.amount" style="max-width: 250px" class="form-control"  ng-change="addChoices($index)">
-                    <option value="2">2</option>
-                    <option value="4">4</option>
-                    <option value="6">6</option>
-                </select>
+        <button type="button" class="btn btn-danger" ng-click="removeQuestion(indexOf(q))">X</button>
+        <div class="form-group">
+            <label>Type:</label>
+            <select ng-model="q.type" style="max-width: 250px" class="form-control">
+                <option value="stemning">Stemning</option>
+                <option value="gradering">Gradering</option>
+                <option value="flervalg">Flervalg</option>
+                <option value="text">Tekst</option>
+            </select>
+        </div>
+        <div ng-if="q.type == 'flervalg'">
+            <label>Antall valg</label>
+            <select ng-model="q.amount" style="max-width: 250px" class="form-control"  ng-change="addChoices($index)">
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+            </select>
 
-                <div ng-repeat="a in q.choices">
-                    <label>#{{$index + 1 }} Valg:</label>
-                    <input type="text" class="form-control" class="question" ng-model="a.answer" ng-value="a.answer" width="40%">
-                </div>
+            <div ng-repeat="a in q.choices">
+                <label>#{{$index + 1 }} Valg:</label>
+                <input type="text" class="form-control" class="question" ng-model="a.answer" ng-value="a.answer" width="40%">
             </div>
         </div>
+    </div>
 
-        <a href="#" ng-click="addQuestion()">Legg til flere</a><br />
+    <a href="#" ng-click="addQuestion()">Legg til flere</a><br />
 
-        <button type="submit" style="margin-left: 20px;" class="btn btn-primary pull-right" ng-click="createUserTest()">Opprett Undersøkelse</button>
-        <button type="submit" class="btn btn-default pull-right">Tøm innhold</button>
-    </form>
-</div>
+    <button type="submit" style="margin-left: 20px;" class="btn btn-primary pull-right" ng-click="createUserTest()">Opprett Undersøkelse</button>
+    <button type="submit" class="btn btn-default pull-right">Tøm innhold</button>
+</form>

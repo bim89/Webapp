@@ -3,6 +3,8 @@ package controllers
 import (
 	"net/http"
 	"application/models"
+	"application/config"
+	"fmt"
 )
 
 type HomeController struct {
@@ -11,7 +13,12 @@ type HomeController struct {
 func (*HomeController) Index(res http.ResponseWriter, req *http.Request) {
 	// renderView(res, req, nil)
 	ut := models.UserTest{}
-	usertests := ut.FindAll()
+	session, err := config.Sessions().Get(req, "AUTH")
+	if (err != nil) {
+		fmt.Fprint(res, err.Error())
+	}
+	email := session.Values["email"].(string)
+	usertests := ut.FindAll(email)
 
 	createTemplate("index", "home", "layout", usertests, res, req)
 
@@ -19,7 +26,12 @@ func (*HomeController) Index(res http.ResponseWriter, req *http.Request) {
 
 func (HomeController) Create(res http.ResponseWriter, req *http.Request) {
 	// renderView(res, req, nil)
-	createTemplate("create", "home", "layout", nil, res, req)
+	session, err := config.Sessions().Get(req, "AUTH")
+	if (err != nil) {
+		fmt.Fprint(res, err.Error())
+	} else {
+		createTemplate("create", "home", "layout", session.Values, res, req)
+	}
 }
 
 func (HomeController) Show(res http.ResponseWriter, req *http.Request) {

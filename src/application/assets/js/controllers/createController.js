@@ -2,7 +2,17 @@
  * Created by bim on 28.02.2017.
  */
 App.controller('createCtrl', function($scope, $http) {
+
+
+    $scope.form = {"title": "", "latitude": 0, "longitude": 0};
+
     $scope.questions = [{"question": "", "type": "", "choices": [], "amount": 2}];
+
+
+    $scope.init = function (email) {
+        $scope.email = email
+    }
+
 
     $scope.addQuestion = function() {
         if ($scope.questions[$scope.questions.length - 1].question) {
@@ -21,12 +31,13 @@ App.controller('createCtrl', function($scope, $http) {
     }
 
     $scope.createUserTest = function() {
-        if ($scope.questions.length >= 1 && $scope.questions[0].question.length > 0) {
-            data = {"title": $scope.title, "latitude": $scope.latitude, "longitude": $scope.longitude, "questions": $scope.questions};
+        if ($scope.questions.length >= 1 && $scope.questions[0].question.length > 0 && $scope.form.title.length > 1) {
+            data = {"title": $scope.form.title, "email": $scope.email, "latitude": $scope.form.latitude, "longitude": $scope.form.longitude, "questions": $scope.questions};
+            console.log(data);
             $http.post("/usertest/create", data);
             alert("You have just created your user test");
         } else {
-            alert("Your form is empty");
+            alert("Some required fields are empty");
         }
     }
 
