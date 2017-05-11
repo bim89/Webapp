@@ -23,3 +23,7 @@
     right: 25%;
     top: 120px;
 }
+#map {
+    height: 400px;
+    width: 100%;
+}
