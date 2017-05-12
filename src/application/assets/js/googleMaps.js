@@ -36,6 +36,8 @@ function geocodeAddress(geocoder, resultsMap) {
             document.getElementById("title").value = document.getElementById("address").value;
             document.getElementById("latitude").value = lat;
             document.getElementById("longitude").value = lng;
+            document.getElementById("lat").value = lat;
+            document.getElementById("lng").value = lng;
         } else {
             alert("Venligst skriv inn en mer spesifikk adresse");
         }

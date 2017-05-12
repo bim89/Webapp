@@ -1,7 +1,9 @@
 <h1 class="page-header">Opprett Brukerundersøkelse:</h1>
 <div id="map"></div>
 <div>
-    <input id="address" type="textbox" value="Butikk, sted">
+    <input id="address" type="textbox" placeholder="Butikk, sted">
+    <input type="hidden" id="lat">
+    <input type="hidden" id="lng">
     <input id="submit" type="button" value="Finn butikk">
 </div>
 <form>
@@ -16,7 +18,7 @@
         <label for="longitude">Rekkevidde:<small> (melllom 20-200 meter)</small></label>
         <input style="max-width: 650px" type="number" class="form-control" ng-model="form.distance" ng-value="form.distance" id="distance" placeholder="Rekkevidde">
         <label for="longitude">Premie:<small> (Legg til en utvalgt premie for å fullføre brukerundersøkelsen, som f.eks tilbud på en bestemt vare)</small></label>
-        <input style="max-width: 650px" type="number" class="form-control" ng-model="form.reward" ng-value="form.reward" id="reward" placeholder="Premie">
+        <input style="max-width: 650px" type="text" class="form-control" ng-model="form.reward" ng-value="form.reward" id="reward" placeholder="Premie">
     </div>
     <h3 style="margin-top: 50px;" class="sub-header">Legg til Spørsmål:</h3>
     <div class="questions" style="max-width: 650px" ng-repeat="q in questions">
