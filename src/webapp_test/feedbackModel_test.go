@@ -2,7 +2,6 @@
 package webapp_test
 
 import (
-	"testing"
 	. "gopkg.in/check.v1"
 	"application/models"
 	"gopkg.in/mgo.v2/bson"
@@ -13,11 +12,11 @@ import (
 )
 
 
-func Test(t *testing.T) { TestingT(t) }
 
-type MySuite struct{}
 
-var _ = Suite(&MySuite{})
+type FeedbackSuite struct{}
+
+var _ = Suite(&FeedbackSuite{})
 
 func createFeedbackHandler(w http.ResponseWriter, r *http.Request) {
 	// A very simple health check.
@@ -26,10 +25,10 @@ func createFeedbackHandler(w http.ResponseWriter, r *http.Request) {
 
 	// In the future we could report back on the status of our DB, or our cache
 	// (e.g. Redis) by performing a simple PING, and include them in the response.
-	io.WriteString(w, `{"usertestid": "58c2814bef5f386c36ce0584", "answers": [{ "index": 0, "score": 3 }, { "index": 1, "score": 2 }, { "index": 2, "score": 5 }]}`)
+	io.WriteString(w, `{"usertestid": "5911e9f635bafe7b705d0491", "answers": [{ "index": 0, "score": 3 }, { "index": 1, "score": 2 }, { "index": 2, "score": 5 }]}`)
 }
 
-func (s *MySuite)TestSave(c *C) {
+func (s *FeedbackSuite)TestSave(c *C) {
 	a1 := models.Answer{}
 	a1.Index = 0
 	a1.Score = 3
@@ -44,7 +43,7 @@ func (s *MySuite)TestSave(c *C) {
 	answers := []models.Answer{a1, a2, a3}
 
 	f := models.Feedback{}
-	f.UsertestId = bson.ObjectIdHex("58c2814bef5f386c36ce0589")
+	f.UsertestId = bson.ObjectIdHex("5911e9f635bafe7b705d0491")
 	f.Answers = answers
 	msg, err := f.Save()
 	if err != nil {
@@ -55,9 +54,9 @@ func (s *MySuite)TestSave(c *C) {
 }
 
 
-func (s *MySuite)TestCreate(c *C) {
+func (s *FeedbackSuite)TestCreate(c *C) {
 
-	json :=  `{"usertestid": "58c14c5737fb32e6c63da5af", "answers": [{ "index": 0, "score": 2 }, { "index": 1, "score": 4 }, { "index": 2, "score": 2 }]}`
+	json :=  `{"usertestid": "5911e9f635bafe7b705d0491", "answers": [{ "index": 0, "score": 2 }, { "index": 1, "score": 4 }, { "index": 2, "score": 2 }]}`
 
 	client := &http.Client{}
 	r, err := http.NewRequest("POST", "http://localhost:8001/feedback/create", bytes.NewBufferString(json))

@@ -55,7 +55,6 @@ func (* UserTest) FindId(id string) UserTest {
 			log.Println(len(results))
 			ut.Feedback = results
 		}
-
 	} else {
 		// return ut, errors.New("Not a valid Object ID")
 	}
@@ -63,7 +62,7 @@ func (* UserTest) FindId(id string) UserTest {
 	return ut
 }
 
-func (* UserTest) FindAll(email string) []UserTest {
+func (* UserTest) FindAll(email string, withFeedback bool) []UserTest {
 	c, session := getCollection("usertests")
 	defer session.Close()
 
@@ -79,8 +78,24 @@ func (* UserTest) FindAll(email string) []UserTest {
 		// results[0].Admin = admin
 	}
 
-	return results
+	if withFeedback {
+		feedColl, session := getCollection("feedback")
+		defer session.Close()
+		for i := 0; i < len(results); i++ {
+			var feedback []Feedback
+			if err := feedColl.Find(bson.M{"usertestid": results[i].Id }).All(&feedback); err != nil {
+				log.Panic(err.Error())
+			} else {
+				println(feedback)
+				if (feedback != nil) {
+					results[i].Feedback = feedback
+				}
+			}
+		}
+	}
 
+
+	return results
 
 }
 

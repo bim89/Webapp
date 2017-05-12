@@ -18,7 +18,7 @@ func (*HomeController) Index(res http.ResponseWriter, req *http.Request) {
 		fmt.Fprint(res, err.Error())
 	}
 	email := session.Values["email"].(string)
-	usertests := ut.FindAll(email)
+	usertests := ut.FindAll(email, false)
 
 	createTemplate("index", "home", "layout", usertests, res, req)
 

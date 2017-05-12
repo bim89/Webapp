@@ -8,7 +8,6 @@ App.controller('showCtrl', function($scope, $http) {
              $scope.ut = response.data;
              console.log($scope.ut);
         });
-
     }
 
     $scope.getAverage = function(index) {
