@@ -19,8 +19,12 @@ func (*UserTestController) Create(res http.ResponseWriter, req *http.Request) {
 }
 
 func (*UserTestController) Read(res http.ResponseWriter, req *http.Request) {
+	wf := req.FormValue("feedback")
+	var withFeedback = false
+	if wf == "true" { withFeedback = true } else { withFeedback = false }
+
 	ut := models.UserTest{}
-	list := ut.FindAll()
+	list := ut.FindAll("", withFeedback)
 	// res.Header().Set("Content-Type", "application/vnd.api+sjon")
 	json.NewEncoder(res).Encode(list)
 }

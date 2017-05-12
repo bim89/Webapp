@@ -15,7 +15,9 @@ type Answer struct {
 type Feedback struct {
 	Id    		bson.ObjectId 		`bson:"_id,omitempty"`
 	UsertestId 	bson.ObjectId 		`json:"usertestid" bson:",omitempty"`
+	AnsweredBy	string 			`json:"answered_by"`
 	Answers[] 	Answer			`json:"answers"`
+	User		User			`json:"user"`
 }
 
 
