@@ -37,9 +37,9 @@ func (*UserController) ConfirmUUID(res http.ResponseWriter, req *http.Request) {
 	u.Email = req.FormValue("email")
 	u,hasMail := u.CheckEmail(u.Email)
 	if (hasMail && u.UUID == req.FormValue("uuid")) {
-		fmt.Fprint("Confirmed")
+		fmt.Fprint(res, "Confirmed")
 	} else {
-		fmt.Fprint("Wrong data given")
+		fmt.Fprint(res, "Wrong data given")
 	}
 }
 

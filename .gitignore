@@ -8,4 +8,5 @@ web-api
 github.com/
 golang.org/  
 gopkg.in/
+src/gopkg.in/
 pkg/ 
