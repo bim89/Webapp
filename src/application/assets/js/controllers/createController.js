@@ -29,8 +29,10 @@ App.controller('createCtrl', function($scope, $http) {
             alert("You only have one question");
         }
     }
-
     $scope.createUserTest = function() {
+        $scope.form.title = $('#address').val();
+        $scope.form.latitude = $('#latitude').val();
+        $scope.form.longitude = $('#longitude').val();
         if ($scope.questions.length >= 1 && $scope.questions[0].question.length > 0 && $scope.form.title.length > 1) {
             data = {"title": $scope.form.title, "email": $scope.email, "latitude": $scope.form.latitude, "longitude": $scope.form.longitude, "questions": $scope.questions};
             console.log(data);
