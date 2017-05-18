@@ -39,6 +39,17 @@ func (*UserController) Create(res http.ResponseWriter, req *http.Request) {
 	}
 }
 
+func (*UserController) ConfirmUUID(res http.ResponseWriter, req *http.Request) {
+	u := models.User{}
+	u.Email = req.FormValue("email")
+	u,hasMail := u.CheckEmail(u.Email)
+	if (hasMail && u.UUID == req.FormValue("uuid")) {
+		fmt.Fprint("Confirmed")
+	} else {
+		fmt.Fprint("Wrong data given")
+	}
+}
+
 func (*UserController) Login(res http.ResponseWriter, req *http.Request) {
 	email := req.FormValue("email")
 	password := req.FormValue("password")
