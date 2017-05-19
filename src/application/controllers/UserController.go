@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/satori/go.uuid"
 	"encoding/json"
+	"log"
 )
 
 type UserController struct {
@@ -16,17 +17,13 @@ func (*UserController) Create(res http.ResponseWriter, req *http.Request) {
 	tu := models.TempUser{}
 	json.NewDecoder(req.Body).Decode(&tu)
 
-	// u.Email = req.FormValue("email")
-	// u.Username = req.FormValue("username")
-	/*
-	age,err := strconv.ParseInt(req.FormValue("age"), 10, 8)
-	if (err == nil) {
-		u.Age = int(age)
-	}
-	u.Gender = req.FormValue("gender")
-	*/
+	log.Print("VAR:")
+	log.Println(tu.Age)
 	if (tu.Password == tu.ConfirmPassword) {
+		log.Println("Passwords match")
 		u := models.User{}
+		u.Username = tu.Username
+		u.Age = tu.Age
 		u.Email = tu.Email
 		u.Password = tu.Password
 		u.Gender = tu.Gender
