@@ -1,29 +1,35 @@
 {{define "title"}}Oversikt{{end}}
 
 {{define "body"}}
-<div class="col-md-10 centered main">
+<div class="col-md-10 centered main" ng-controller="indexCtrl">
     <h1 class="page-header">Oversikt</h1>
 
     <div class="row placeholders">
         <div class="col-xs-6 col-sm-3 placeholder">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <canvas id="register" class="chart chart-pie" width="200" height="200" class="img-responsive"
+                    chart-data="data" chart-labels="labels" chart-options="options" chart-colors="colors">
+            </canvas>
+            <h4>Registrerte brukere</h4>
+            <span class="text-muted">Registrerte brukere angitt i prosent</span>
         </div>
         <div class="col-xs-6 col-sm-3 placeholder">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <canvas id="gender" class="chart chart-pie" width="200" height="200" class="img-responsive"
+                    chart-data="dataGender" chart-labels="labelsGender" chart-options="options" chart-colors="colors">
+            </canvas>
+            <h4>Kjønn</h4>
+            <span class="text-muted">Kjønnsfordeling angitt i prosent</span>
         </div>
         <div class="col-xs-6 col-sm-3 placeholder">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <canvas id="age" class="chart chart-pie" width="200" height="200" class="img-responsive"
+                    chart-data="dataAge" chart-labels="labelsAge" chart-options="options" chart-colors="colors">
+            </canvas>
+            <h4>Alder</h4>
+            <span class="text-muted">Aldersfordeling delt inn i grupper</span>
         </div>
         <div class="col-xs-6 col-sm-3 placeholder">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <img width="270" height="270" class="img-responsive" alt="Generic placeholder thumbnail" src="/assets/imgs/neutral.png">
+            <h4>Tilfredshet</h4>
+            <span class="text-muted">Du har en total tilfredshet på 2,4</span>
         </div>
     </div>
 

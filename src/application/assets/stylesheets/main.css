@@ -27,3 +27,9 @@
     height: 400px;
     width: 100%;
 }
+
+.chart {
+    margin: 0 auto;
+    width: 270px !important;
+    height: 270px !important;
+}

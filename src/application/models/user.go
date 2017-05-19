@@ -8,11 +8,11 @@ import (
 
 type TempUser struct {
 	Email 			string		`json:"email"`
-	Password 		string		`json:"password"`
-	ConfirmPassword 	string		`json:"confirm_password"`
 	Username		string		`json:"username"`
 	Age 			int		`json:"age"`
 	Gender			string		`json:"gender"`
+	Password 		string		`json:"password"`
+	ConfirmPassword 	string		`json:"confirm_password"`
 }
 
 type User struct {
