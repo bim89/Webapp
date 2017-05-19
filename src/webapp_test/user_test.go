@@ -23,14 +23,12 @@ func (s *MySuite)TestCheckEmail(c *C) {
 	var u = models.User{}
 
 	/*
-	u.Name = "Bjørn-Inge Morstad"
-	u.Email = "bimorstad@gmail.com"
-	u.Password = "1234"
-	u.Username = "bim"
-	u.Gender = "male"
-	u.Age = 28
-	u.Admin = false
-	u.Save()
+		u.Email = "gustav@gmail.com"
+		u.Password = "1234"
+		u.Username = "gustav"
+		u.Gender = "Male"
+		u.Age = 42
+		u.Save()
 	*/
 
 	_, hasMail := u.CheckEmail("bimorstad@msn.com")

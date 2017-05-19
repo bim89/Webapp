@@ -6,6 +6,15 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
+type TempUser struct {
+	Email 			string		`json:"email"`
+	Password 		string		`json:"password"`
+	ConfirmPassword 	string		`json:"confirm_password"`
+	Username		string		`json:"username"`
+	Age 			int		`json:"age"`
+	Gender			string		`json:"gender"`
+}
+
 type User struct {
 	Id    		bson.ObjectId 	`bson:"_id,omitempty"`
 	Name  		string		`json:"name"`
@@ -14,7 +23,6 @@ type User struct {
 	Username	string		`json:"username"`
 	Age 		int		`json:"age"`
 	Gender		string		`json:"gender"`
-	Admin		bool		`json:"admin"`
 	UUID  		string		`json:"uuid"`
 }
 
