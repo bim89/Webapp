@@ -33,11 +33,15 @@ function geocodeAddress(geocoder, resultsMap) {
             gmarkers.push(marker);
             var lat = marker.getPosition().lat();
             var lng = marker.getPosition().lng();
+            angular.element('#create').scope().setFromMap(document.getElementById("address").value, lat, lng);
+            angular.element('#create').scope().$apply();
+            /*
             document.getElementById("title").value = document.getElementById("address").value;
             document.getElementById("latitude").value = lat;
             document.getElementById("longitude").value = lng;
             document.getElementById("lat").value = lat;
             document.getElementById("lng").value = lng;
+            */
         } else {
             alert("Venligst skriv inn en mer spesifikk adresse");
         }

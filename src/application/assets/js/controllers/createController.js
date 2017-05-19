@@ -30,8 +30,15 @@ App.controller('createCtrl', function($scope, $http) {
         }
     }
 
+    $scope.setFromMap = function (title, lat, lng) {
+        $scope.form.title = title;
+        $scope.form.latitude = lat;
+        $scope.form.longitude = lng;
+        console.log($scope.form.title);
+    }
+
     $scope.createUserTest = function() {
-        $scope.form.title = $('#address').val();
+        // $scope.form.title = $('#address').val();
         // $scope.form.latitude = $('#lat').val();
         // $scope.form.longitude = $('#lng').val();
         if ($scope.questions.length >= 1 && $scope.questions[0].question.length > 0 && $scope.form.title.length > 1 && $scope.form.distance > 20 && $scope.form.distance < 200) {
