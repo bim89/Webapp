@@ -1,0 +1,60 @@
+
+<h1 class="page-header">Oversikt</h1>
+
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <canvas id="register" class="chart chart-pie" width="200" height="200" class="img-responsive"
+                chart-data="dataRegister" chart-labels="labelsRegister" chart-options="options" chart-colors="colors">
+        </canvas>
+        <h4>Registrerte brukere</h4>
+        <span class="text-muted">Registrerte brukere angitt i prosent</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <canvas id="gender" class="chart chart-pie" width="200" height="200" class="img-responsive"
+                chart-data="dataGender" chart-labels="labelsGender" chart-options="options" chart-colors="colors">
+        </canvas>
+        <h4>Kjønn</h4>
+        <span class="text-muted">Kjønnsfordeling angitt i prosent</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <canvas id="age" class="chart chart-pie" width="200" height="200" class="img-responsive"
+                chart-data="dataAge" chart-labels="labelsAge" chart-options="options" chart-colors="colors">
+        </canvas>
+        <h4>Alder</h4>
+        <span class="text-muted">Aldersfordeling delt inn i grupper</span>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <img width="270" height="270" class="img-responsive" alt="Generic placeholder thumbnail" src="{{ getImage() }}">
+        <h4>Tilfredshet</h4>
+        <span class="text-muted">Du har en total tilfredshet på {{ avgScore.toFixed(2) }}</span>
+    </div>
+</div>
+
+<h2 class="sub-header">Tilgjenglige undersøkelser</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+
+        <tr>
+            <th style="width:15%">Dato</th>
+            <th style="width: 30%">Tittel</th>
+            <th style="width: 10%">Antall Spørsmål</th>
+            <th style="width: 10%">Antall Besvarelser</th>
+            <th style="width: 10%">Score</th>
+            <th style="width: 5%"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="ut in data">
+            <td>--</td>
+            <td><a href='/brukerundersokelse?t={{ ut.Id }}'>{{ ut.title }}</a></td>
+            <td>{{ ut.questions.length }} </td>
+            <td>{{ ut.feedback.length }}</td>
+            <td>0</td>
+            <td><a href='/usertest/delete?t={{ $elem.Id.Hex }}'>Slett</a></td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>

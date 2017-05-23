@@ -5,6 +5,7 @@ import (
 	"application/models"
 	"application/config"
 	"fmt"
+	"encoding/json"
 )
 
 type HomeController struct {
@@ -18,10 +19,14 @@ func (*HomeController) Index(res http.ResponseWriter, req *http.Request) {
 		fmt.Fprint(res, err.Error())
 	}
 	email := session.Values["email"].(string)
-	usertests := ut.FindAll(email, false)
+	usertests := ut.FindAll(email, true)
 
-	createTemplate("index", "home", "layout", usertests, res, req)
+	data, jerr := json.Marshal(usertests)
+	if jerr != nil {
 
+	}
+
+	createTemplate("index", "home", "layout", string(data), res, req)
 }
 
 func (HomeController) Create(res http.ResponseWriter, req *http.Request) {

@@ -17,13 +17,12 @@ type TempUser struct {
 
 type User struct {
 	Id    		bson.ObjectId 	`bson:"_id,omitempty"`
-	Name  		string		`json:"name"`
 	Email 		string		`json:"email"`
-	Password 	string		`json:"password"`
+	Password 	string		`json:"-"`
 	Username	string		`json:"username"`
 	Age 		int		`json:"age"`
 	Gender		string		`json:"gender"`
-	UUID  		string		`json:"uuid"`
+	UUID  		string		`json:"-"`
 }
 
 

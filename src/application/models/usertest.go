@@ -89,6 +89,12 @@ func (* UserTest) FindAll(email string, withFeedback bool) []UserTest {
 				println(feedback)
 				if (feedback != nil) {
 					results[i].Feedback = feedback
+					for index, elem := range feedback {
+						user, hasmail := User{}.CheckEmail(elem.AnsweredBy)
+						if (hasmail) {
+							results[i].Feedback[index].User = user;
+						}
+					}
 				}
 			}
 		}
