@@ -113,6 +113,29 @@ App.config(
         }
     }
 
+    $scope.getScore = function(usertest) {
+        score = 0;
+        if (usertest.feedback.length != 0) {
+            score += usertest.feedback.length * 500;
+            score += usertest.questions.length * 100;
+            for (var i = 0; i < usertest.feedback.length; i++) {
+                for (var o = 0; o < usertest.feedback[i].answers.length; o++) {
+                    if (o < usertest.questions.length) {
+                        if (usertest.questions[o].type = "stemning") {
+                            score += usertest.feedback[i].answers[o].score * 100;
+                        } else if (usertest.questions[o].type = "flervalg") {
+                            score += 300;
+                        } else if (usertest.questions[o].type = "text" && usertest.feedback[i].answers[o].answer != "") {
+                            score += 500;
+                        }
+                    }
+                }
+            }
+        }
+
+        return score;
+    }
+
 
 });
 
