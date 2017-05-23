@@ -25,14 +25,29 @@ App.config(
         $scope.sixtyplus = 0;
         $scope.score = 0;
         $scope.scoreCount = 0;
+        $scope.feedbackCount = 0;
+        $scope.users = [];
+        $scope.topscore = 0;
 
         $scope.age = [];
         for (var i = 0; i < data.length; i++) {
-            $scope.feedback.push(data[i].feedback)
-            console.log(data[i].title + " index:" + i);
+            $scope.feedbackCount += $scope.data[i].feedback.length;
+
             for (var o = 0; o < data[i].feedback.length; o++) {
                 if (data[i].feedback[o].user.username != "") {
                     gender = data[i].feedback[o].user.gender;
+
+                    if ($scope.users.length == 0) {
+                        $scope.users.push(data[i].feedback[o].answered_by);
+                    } else {
+                        size = $scope.users.length;
+                        hasUser = false;
+                        for (var u = 0; u < size; u++) {
+                            if (data[i].feedback[o].answered_by == $scope.users[u]) { hasUser = true }
+                        }
+                        if (!hasUser) { $scope.users.push(data[i].feedback[o].answered_by) }
+                    }
+
                     if (gender == "male" || gender == "Male") {
                         $scope.maleTotal++;
                         $scope.register++;
@@ -59,16 +74,18 @@ App.config(
                         $scope.sixtyplus++;
                     }
 
-
-                    for (var a = 0; a < data[i].feedback[o].answers.length; a++) {
-                        if (data[i].questions[a] && data[i].questions[a].type == "stemning") {
-                            console.log("score:" + data[i].feedback[o].answers[a].score);
-                            $scope.score += data[i].feedback[o].answers[a].score;
-                            $scope.scoreCount++;
-                        }
-                    }
                 } else {
                     $scope.unregister++;
+                }
+
+                for (var a = 0; a < data[i].feedback[o].answers.length; a++) {
+                    if (data[i].questions[a] && data[i].questions[a].type == "stemning") {
+                        console.log("score:" + data[i].feedback[o].answers[a].score);
+                        $scope.score += data[i].feedback[o].answers[a].score;
+                        $scope.scoreCount++;
+                        if ( data[i].feedback[o].answers[a].score == 4) { $scope.topscore++ }
+
+                    }
                 }
             }
 

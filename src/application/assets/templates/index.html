@@ -7,26 +7,45 @@
                 chart-data="dataRegister" chart-labels="labelsRegister" chart-options="options" chart-colors="colors">
         </canvas>
         <h4>Registrerte brukere</h4>
-        <span class="text-muted">Registrerte brukere angitt i prosent</span>
+        <span class="text-muted">Antall registrerte og uregistrerte besvarelser</span>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
         <canvas id="gender" class="chart chart-pie" width="200" height="200" class="img-responsive"
                 chart-data="dataGender" chart-labels="labelsGender" chart-options="options" chart-colors="colors">
         </canvas>
         <h4>Kjønn</h4>
-        <span class="text-muted">Kjønnsfordeling angitt i prosent</span>
+        <span class="text-muted">Besvarelser fordelt på kjønn</span>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
         <canvas id="age" class="chart chart-pie" width="200" height="200" class="img-responsive"
                 chart-data="dataAge" chart-labels="labelsAge" chart-options="options" chart-colors="colors">
         </canvas>
         <h4>Alder</h4>
-        <span class="text-muted">Aldersfordeling delt inn i grupper</span>
+        <span class="text-muted">Besvarelser fordelt på alder</span>
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
         <img width="270" height="270" class="img-responsive" alt="Generic placeholder thumbnail" src="{{ getImage() }}">
         <h4>Tilfredshet</h4>
         <span class="text-muted">Du har en total tilfredshet på {{ avgScore.toFixed(2) }}</span>
+    </div>
+</div>
+
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h2>Antall Brukertester:</h2>
+        <h1>{{ data.length }}</h1>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h2>Antall Besvarelser:</h2>
+        <h1>{{ feedbackCount }}</h1>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h2>Antall Unike brukere:</h2>
+        <h1>{{ users.length }}</h1>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <h2>Antall happy faces:</h2>
+        <h1>{{ topscore }}</h1>
     </div>
 </div>
 
