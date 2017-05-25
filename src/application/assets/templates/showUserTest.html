@@ -7,7 +7,18 @@
 
     <li ng-repeat="q in ut.questions">
         <h3>{{ q.question }} <small>({{ q.type }})</small></h3>
-        <p ng-if="hasFeedback()">Gjennomsnitt: {{ getAverage($index).toFixed(1) }}</p>
+        <div ng-if="q.type == 'stemning'">
+            <div class="pie-chart">
+                <canvas id="register" class="chart chart-pie" width="200" height="200" class="img-responsive"
+                    chart-data="moodData[$index]" chart-labels="moodLabels" chart-options="options" chart-colors="colors">
+                </canvas>
+            </div>
+            <img src="{{ getImage(getAverage($index).toFixed(1)) }}" />
+            <p>Du har oppnådd ett gjennomsnitt på {{ getAverage($index).toFixed(1) }} på en skala fra 1 til 5</p>
+        </div>
+        <div ng-if="q.type == 'flervalg'">
+
+        </div>
     </li>
 </ul>
 <p ng-if="hasFeedback()">Total Score: {{ getScore().toFixed(1) }}</p>

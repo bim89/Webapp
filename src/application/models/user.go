@@ -29,11 +29,8 @@ type User struct {
 func (u User) CheckEmail(email string) (User, bool) {
 	c, session := getCollection("user")
 	defer session.Close()
-	/*
-	result := Person{}
-	err = c.Find(bson.M{"name": "Ale"}).One(&result)
-	*/
 	err := c.Find(bson.M{"email": email}).One(&u)
+
 	if err == nil {
 		if u.Email == email {
 			return u, true

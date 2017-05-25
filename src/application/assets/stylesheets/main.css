@@ -33,3 +33,13 @@
     width: 270px !important;
     height: 270px !important;
 }
+
+.blue {
+    color: #00F !important;
+}
+
+
+.pie-chart {
+    float: left;
+    margin-right: 200px;
+}

@@ -54,6 +54,12 @@ func (* UserTest) FindId(id string) UserTest {
 			}
 			log.Println(len(results))
 			ut.Feedback = results
+			for index, elem := range ut.Feedback {
+				user, hasmail := User{}.CheckEmail(elem.AnsweredBy)
+				if (hasmail) {
+					ut.Feedback[index].User = user;
+				}
+			}
 		}
 	} else {
 		// return ut, errors.New("Not a valid Object ID")
