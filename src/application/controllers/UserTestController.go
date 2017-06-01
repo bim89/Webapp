@@ -15,6 +15,7 @@ type UserTestController struct {
 func (*UserTestController) Create(res http.ResponseWriter, req *http.Request) {
 	ut := models.UserTest{}
 	json.NewDecoder(req.Body).Decode(&ut)
+	ut.Date = makeTimestampMilli()
 	ut.Save()
 }
 

@@ -4,7 +4,7 @@ import (
 	"gopkg.in/mgo.v2"
 	"log"
 	"gopkg.in/mgo.v2/bson"
-	// "errors"
+
 )
 
 type Question struct {
@@ -26,6 +26,7 @@ type UserTest struct {
 	Longitude 	float32 	`json:"longitude"`
 	Questions[] 	Question 	`json:"questions"`
 	Feedback[] 	Feedback 	`json:"feedback"`
+	Date		int64		`json:"date"`
 	Admin		Admin		`json:"admin"`
 }
 

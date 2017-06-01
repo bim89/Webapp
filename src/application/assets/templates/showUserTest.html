@@ -17,7 +17,11 @@
             <p>Du har oppnådd ett gjennomsnitt på {{ getAverage($index).toFixed(1) }} på en skala fra 1 til 5</p>
         </div>
         <div ng-if="q.type == 'flervalg'">
-
+            <div class="bar-frame">
+                <canvas id="bar" class="chart chart-bar"
+                    chart-data="answerAmount[$index]" chart-labels="answers[$index]" chart-options="options">
+                </canvas>
+            </div>
         </div>
     </li>
 </ul>

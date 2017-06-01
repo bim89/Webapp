@@ -28,10 +28,14 @@
     width: 100%;
 }
 
-.chart {
+.chart-pie {
     margin: 0 auto;
     width: 270px !important;
     height: 270px !important;
+}
+
+.chart-bar {
+    margin: 0 auto;
 }
 
 .blue {
@@ -42,4 +46,9 @@
 .pie-chart {
     float: left;
     margin-right: 200px;
+}
+
+.bar-frame {
+    width: 500px;
+    height: 250px;
 }

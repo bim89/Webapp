@@ -55,7 +55,7 @@
         <thead>
 
         <tr>
-            <th style="width:15%">Dato</th>
+            <th style="width:15%">Opprettet</th>
             <th style="width: 30%">Tittel</th>
             <th style="width: 10%">Antall Spørsmål</th>
             <th style="width: 10%">Antall Besvarelser</th>
@@ -65,13 +65,13 @@
         </thead>
 
         <tbody>
-        <tr ng-repeat="ut in data">
-            <td>--</td>
+        <tr ng-repeat="ut in data | orderBy: '-date'">
+            <td>{{ ut.date | date:"MM.dd.yyyy 'kl.'h:mm"}}</td>
             <td><a href='/brukerundersokelse?t={{ ut.Id }}'>{{ ut.title }}</a></td>
             <td>{{ ut.questions.length }} </td>
             <td>{{ ut.feedback.length }}</td>
             <td>{{ getScore(ut) }}</td>
-            <td><a href='/usertest/delete?t={{ $elem.Id.Hex }}'>Slett</a></td>
+            <td><a href='/usertest/delete?t={{ ut.Id }}'>Slett</a></td>
         </tr>
         </tbody>
 

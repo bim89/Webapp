@@ -18,6 +18,7 @@ type Feedback struct {
 	AnsweredBy	string 			`json:"answered_by"`
 	Answers[] 	Answer			`json:"answers"`
 	User		User			`json:"user"`
+	Date		int64			`json:"date"`
 }
 
 

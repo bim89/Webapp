@@ -83,7 +83,9 @@ App.config(
                         console.log("score:" + data[i].feedback[o].answers[a].score);
                         $scope.score += data[i].feedback[o].answers[a].score;
                         $scope.scoreCount++;
-                        if ( data[i].feedback[o].answers[a].score == 4) { $scope.topscore++ }
+                        if (data[i].feedback[o].answers[a].score == 4) {
+                            $scope.topscore++
+                        }
 
                     }
                 }
@@ -92,11 +94,7 @@ App.config(
 
         }
 
-        console.log($scope.maleTotal);
-        console.log($scope.femaleTotal);
-
         $scope.avgScore = $scope.score / $scope.scoreCount + 1;
-        console.log(Math.floor($scope.avgScore));
         $scope.labelsRegister = ["Registrerte brukere", "Uregistrerte brukere"];
         $scope.labelsGender = ["Menn", "Kvinner"];
         $scope.labelsAge = ["0-12år", "13-18år", "19-25år", "26-33år", "34-42år", "42-60år", "60+år"];
@@ -151,6 +149,13 @@ App.config(
         }
 
         return score;
+    }
+
+    $scope.getDate = function(d) {
+        var date = new Date(d)
+        // var dateUTC = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate, date.))
+        return date
+        // return date.getUTCMonth() + "/" + date.getUTCDay() + "/" + date.getUTCHours() + "/" + date.getMinutes()
     }
 
 
