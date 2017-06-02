@@ -31,26 +31,14 @@ func createFeedbackHandler(w http.ResponseWriter, r *http.Request) {
 func (s *FeedbackSuite)TestSave(c *C) {
 	a1 := models.Answer{}
 	a1.Index = 0
-	a1.Score = 4
+	a1.Score = 3
 
-	a2 := models.Answer{}
-	a2.Index = 1
-	a2.Score = 0
-	a2.Answer = "Ryddigheten"
 
-	a3 := models.Answer{}
-	a3.Index = 2
-	a3.Score = 1
-
-	a4 := models.Answer{}
-	a4.Index = 2
-	a4.Score = 0
-	a4.Answer = "Bytte ut hele vare sortimentet"
-	answers := []models.Answer{a1, a2, a3, a4}
+	answers := []models.Answer{a1}
 
 	f := models.Feedback{}
-	f.UsertestId = bson.ObjectIdHex("5916e3fcb524464e7505d5e9")
-	f.AnsweredBy = "hanne@gmail.com"
+	f.UsertestId = bson.ObjectIdHex("591f4a134a308493ebccc4c5")
+	f.AnsweredBy = ""
 	f.Answers = answers
 	msg, err := f.Save()
 	if err != nil {

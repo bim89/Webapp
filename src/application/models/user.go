@@ -17,24 +17,20 @@ type TempUser struct {
 
 type User struct {
 	Id    		bson.ObjectId 	`bson:"_id,omitempty"`
-	Name  		string		`json:"name"`
 	Email 		string		`json:"email"`
-	Password 	string		`json:"password"`
+	Password 	string		`json:"-"`
 	Username	string		`json:"username"`
 	Age 		int		`json:"age"`
 	Gender		string		`json:"gender"`
-	UUID  		string		`json:"uuid"`
+	UUID  		string		`json:"-"`
 }
 
 
 func (u User) CheckEmail(email string) (User, bool) {
 	c, session := getCollection("user")
 	defer session.Close()
-	/*
-	result := Person{}
-	err = c.Find(bson.M{"name": "Ale"}).One(&result)
-	*/
 	err := c.Find(bson.M{"email": email}).One(&u)
+
 	if err == nil {
 		if u.Email == email {
 			return u, true

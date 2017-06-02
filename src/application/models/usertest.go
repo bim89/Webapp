@@ -4,7 +4,7 @@ import (
 	"gopkg.in/mgo.v2"
 	"log"
 	"gopkg.in/mgo.v2/bson"
-	// "errors"
+
 )
 
 type Question struct {
@@ -26,6 +26,7 @@ type UserTest struct {
 	Longitude 	float32 	`json:"longitude"`
 	Questions[] 	Question 	`json:"questions"`
 	Feedback[] 	Feedback 	`json:"feedback"`
+	Date		int64		`json:"date"`
 	Admin		Admin		`json:"admin"`
 }
 
@@ -54,6 +55,12 @@ func (* UserTest) FindId(id string) UserTest {
 			}
 			log.Println(len(results))
 			ut.Feedback = results
+			for index, elem := range ut.Feedback {
+				user, hasmail := User{}.CheckEmail(elem.AnsweredBy)
+				if (hasmail) {
+					ut.Feedback[index].User = user;
+				}
+			}
 		}
 	} else {
 		// return ut, errors.New("Not a valid Object ID")
@@ -89,6 +96,12 @@ func (* UserTest) FindAll(email string, withFeedback bool) []UserTest {
 				println(feedback)
 				if (feedback != nil) {
 					results[i].Feedback = feedback
+					for index, elem := range feedback {
+						user, hasmail := User{}.CheckEmail(elem.AnsweredBy)
+						if (hasmail) {
+							results[i].Feedback[index].User = user;
+						}
+					}
 				}
 			}
 		}

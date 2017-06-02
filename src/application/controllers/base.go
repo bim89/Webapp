@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"os"
 	"log"
+	"time"
 )
 
 const defaultLayout = "layout"
@@ -85,6 +86,14 @@ func serveFile(file string, folder string, data interface{}, res http.ResponseWr
 	if err := t.ExecuteTemplate(res, fp, nil); err != nil {
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 	}
+}
+
+func unixMilli(t time.Time) int64 {
+	return t.Round(time.Millisecond).UnixNano() / (int64(time.Millisecond) / int64(time.Nanosecond))
+}
+
+func makeTimestampMilli() int64 {
+	return unixMilli(time.Now())
 }
 
 func matchString(r string, s string) string {
