@@ -6,6 +6,7 @@ import (
 	"application/config"
 	"fmt"
 	"encoding/json"
+
 )
 
 type HomeController struct {
@@ -52,5 +53,7 @@ func (*HomeController) Settings(res http.ResponseWriter, req *http.Request) {
 func (*HomeController) Login(res http.ResponseWriter, req *http.Request) {
 	// renderView(res, req, nil)
 	// createTemplate("login", "home", "", nil, res, req)
-	createTemplate("login_form", "home", "login", nil, res, req)
+	sitekey := "6LcjAyQUAAAAAP3yvsBhQxbNb25FfbwmCsIDmAy7"
+
+	createTemplate("login_form", "home", "login", sitekey, res, req)
 }

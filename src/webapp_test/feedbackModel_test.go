@@ -9,6 +9,7 @@ import (
 	"io"
 	"bytes"
 	"io/ioutil"
+	"time"
 )
 
 
@@ -31,15 +32,17 @@ func createFeedbackHandler(w http.ResponseWriter, r *http.Request) {
 func (s *FeedbackSuite)TestSave(c *C) {
 	a1 := models.Answer{}
 	a1.Index = 0
-	a1.Score = 3
+	a1.Score = 4
 
 
 	answers := []models.Answer{a1}
 
 	f := models.Feedback{}
-	f.UsertestId = bson.ObjectIdHex("591f4a134a308493ebccc4c5")
-	f.AnsweredBy = ""
+	f.UsertestId = bson.ObjectIdHex("593269b4122362289b6ee048")
+	f.AnsweredBy = "bimorstad@gmail.com"
 	f.Answers = answers
+	f.Date = makeTimestampMilli("2017-06-09T15:05:41+02:00")
+
 	msg, err := f.Save()
 	if err != nil {
 		c.Fail()
@@ -68,5 +71,15 @@ func (s *FeedbackSuite)TestCreate(c *C) {
 	body, err := ioutil.ReadAll(req.Body)
 	c.Assert(string(body), Equals, "Your feedback was added")
 
+}
+
+
+func unixMilli(t time.Time) int64 {
+	return t.Round(time.Millisecond).UnixNano() / (int64(time.Millisecond) / int64(time.Nanosecond))
+}
+
+func makeTimestampMilli(dateVal string) int64 {
+	t,_ := time.Parse(time.RFC3339, dateVal)
+	return unixMilli(t)
 }
 
