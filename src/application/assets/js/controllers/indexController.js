@@ -9,31 +9,69 @@ App.config(
     })
 ).controller('indexCtrl', function($scope, $http) {
 
+    $scope.dateLabels = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
+    $scope.dateData =
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    $scope.weekLabels = ["Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag"];
+    $scope.weekData =
+        [0, 0, 0, 0, 0, 0, 0]
+    ;
+
+
+    $scope.timeLabels = ["07:00-12:00", "12:00-15:00", "15:00-18:00", "18:00-21:00", "21:00-24:00", "24:00-07:00"];
+    $scope.timeData =
+        [0, 0, 0, 0, 0, 0]
+    ;
+
+    $scope.feedback = [];
+    $scope.register = 0;
+    $scope.unregister = 0;
+    $scope.maleTotal = 0;
+    $scope.femaleTotal = 0;
+    $scope.twelve = 0;
+    $scope.eighteen = 0;
+    $scope.twentyfive = 0;
+    $scope.thirtythree = 0;
+    $scope.fortytwo = 0;
+    $scope.sixty = 0;
+    $scope.sixtyplus = 0;
+    $scope.score = 0;
+    $scope.scoreCount = 0;
+    $scope.feedbackCount = 0;
+    $scope.users = [];
+    $scope.topscore = 0;
+
+
+
+    $scope.age = [];
+
+
     $scope.init = function(data) {
         $scope.data = data;
-        $scope.feedback = [];
-        $scope.register = 0;
-        $scope.unregister = 0;
-        $scope.maleTotal = 0;
-        $scope.femaleTotal = 0;
-        $scope.twelve = 0;
-        $scope.eighteen = 0;
-        $scope.twentyfive = 0;
-        $scope.thirtythree = 0;
-        $scope.fortytwo = 0;
-        $scope.sixty = 0;
-        $scope.sixtyplus = 0;
-        $scope.score = 0;
-        $scope.scoreCount = 0;
-        $scope.feedbackCount = 0;
-        $scope.users = [];
-        $scope.topscore = 0;
 
-        $scope.age = [];
         for (var i = 0; i < data.length; i++) {
             $scope.feedbackCount += $scope.data[i].feedback.length;
 
             for (var o = 0; o < data[i].feedback.length; o++) {
+                var date =  new Date(data[i].feedback[o].date);
+                $scope.dateData[date.getMonth()] += 1;
+                $scope.weekData[date.getDay()] += 1;
+                if (date.getHours() >= 7 && date.getHours() < 12) {
+                    $scope.timeData[0]++;
+                } else if (date.getHours() >= 12 && date.getHours() < 15) {
+                    $scope.timeData[1]++;
+                } else if (date.getHours() >= 15 && date.getHours() < 18) {
+                    $scope.timeData[2]++;
+                } else if (date.getHours() >= 18 && date.getHours() < 21) {
+                    $scope.timeData[3]++;
+                } else if (date.getHours() >= 21 && date.getHours() <= 23) {
+                    $scope.timeData[4]++;
+                } else {
+                    $scope.timeData[5]++;
+                }
+
+
                 if (data[i].feedback[o].user.username != "") {
                     gender = data[i].feedback[o].user.gender;
 
@@ -51,11 +89,9 @@ App.config(
                     if (gender == "male" || gender == "Male") {
                         $scope.maleTotal++;
                         $scope.register++;
-                        console.log("male:" + $scope.maleTotal);
                     } else if (gender == "women" || gender == "Women") {
                         $scope.femaleTotal++;
                         $scope.register++;
-                        console.log("female:" + $scope.femaleTotal);
                     }
                     $scope.age.push(data[i].feedback[o].user.age);
                     if (data[i].feedback[o].user.age <= 12) {
@@ -93,6 +129,7 @@ App.config(
 
 
         }
+
 
         $scope.avgScore = $scope.score / $scope.scoreCount + 1;
         $scope.labelsRegister = ["Registrerte brukere", "Uregistrerte brukere"];
@@ -150,14 +187,6 @@ App.config(
 
         return score;
     }
-
-    $scope.getDate = function(d) {
-        var date = new Date(d)
-        // var dateUTC = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate, date.))
-        return date
-        // return date.getUTCMonth() + "/" + date.getUTCDay() + "/" + date.getUTCHours() + "/" + date.getMinutes()
-    }
-
 
 });
 

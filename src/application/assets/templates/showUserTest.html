@@ -1,10 +1,25 @@
 <h1 class="page-header">Analyse: {{  ut.title }}</h1>
 <p>Posisjon: {{ ut.latitude }}, {{ ut.longitude }}</p>
-
+<div class="row placeholders">
+    <div class="col-xs-6 col-md-4 placeholder">
+        <canvas  class="chart chart-line" chart-data="dateData"
+                 chart-labels="dateLabels">
+        </canvas>
+    </div>
+    <div class="col-xs-6 col-md-4 placeholder">
+        <canvas class="chart chart-line" chart-data="weekData"
+                chart-labels="weekLabels">
+        </canvas>
+    </div>
+    <div class="col-xs-6 col-md-4 placeholder">
+        <canvas class="chart chart-line" chart-data="timeData"
+                chart-labels="timeLabels">
+        </canvas>
+    </div>
+</div>
 <h3>Spørsmål</h3>
 <p>Antall Besvarelser {{ ut.feedback.length }}</p>
 <ul>
-
     <li ng-repeat="q in ut.questions">
         <h3>{{ q.question }} <small>({{ q.type }})</small></h3>
         <div ng-if="q.type == 'stemning'">

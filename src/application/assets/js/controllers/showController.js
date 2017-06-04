@@ -15,6 +15,17 @@ App.config(
 ).controller('showCtrl', function($scope, $http) {
     $scope.moodLabels = ["Svært lite fornøyd", "Lite fornøyd", "Nøytral", "Fornøyd", "Svært fornøyd"];
 
+    $scope.dateLabels = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"];
+    $scope.dateData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    $scope.weekLabels = ["Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag"];
+    $scope.weekData = [0, 0, 0, 0, 0, 0, 0];
+
+
+    $scope.timeLabels = ["07:00-12:00", "12:00-15:00", "15:00-18:00", "18:00-21:00", "21:00-24:00", "24:00-07:00"];
+    $scope.timeData = [0, 0, 0, 0, 0, 0];
+
+
     $scope.init = function(id) {
 
 
@@ -30,6 +41,23 @@ App.config(
              }
 
              for (var i = 0; i < $scope.ut.feedback.length; i++) {
+                 var date =  new Date($scope.ut.feedback[i].date);
+                 $scope.dateData[date.getMonth()] += 1;
+                 $scope.weekData[date.getDay()] += 1;
+                 if (date.getHours() >= 7 && date.getHours() < 12) {
+                     $scope.timeData[0]++;
+                 } else if (date.getHours() >= 12 && date.getHours() < 15) {
+                     $scope.timeData[1]++;
+                 } else if (date.getHours() >= 15 && date.getHours() < 18) {
+                     $scope.timeData[2]++;
+                 } else if (date.getHours() >= 18 && date.getHours() < 21) {
+                     $scope.timeData[3]++;
+                 } else if (date.getHours() >= 21 && date.getHours() <= 23) {
+                     $scope.timeData[4]++;
+                 } else {
+                     $scope.timeData[5]++;
+                 }
+
                  for (var b = 0;b < $scope.ut.feedback[i].answers.length; b++) {
                     if ($scope.ut.questions[b].type == "stemning") {
                         $scope.moodData[b][$scope.ut.feedback[i].answers[b].score]++;
@@ -59,7 +87,7 @@ App.config(
 
         var avg = total / $scope.ut.feedback.length;
 
-        return avg
+        return avg + 1
     }
 
     $scope.getScore = function() {
@@ -95,7 +123,6 @@ App.config(
 
     $scope.getImage = function(avg) {
 
-        avg++;
         if (Math.floor(avg) == 1) {
             return "/assets/imgs/Frown.png";
         } else if (Math.floor(avg) == 2) {

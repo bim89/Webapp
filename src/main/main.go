@@ -9,6 +9,9 @@ import (
 )
 
 func main() {
+
+
+
 	routes := mux.NewRouter().StrictSlash(true)
 	homeResource(routes)
 
